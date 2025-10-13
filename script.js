@@ -52,11 +52,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextBtn = document.getElementById('timeline-next');
     const progressBar = document.getElementById('timeline-progress');
     const yearIndicators = document.querySelectorAll('.year-indicator');
-    const autoplayToggle = document.getElementById('autoplay-toggle');
-
+    const backToLatestBtn = document.getElementById('back-to-latest');
     let currentIndex = 0;
-    let isAutoplay = false;
-    let autoplayInterval;
 
     // Calculate item width including gap
     function getItemWidth() {
@@ -67,25 +64,23 @@ document.addEventListener('DOMContentLoaded', function() {
         return width + marginRight + 40; // 40px is the gap
     }
 
-    // Create infinite loop by duplicating timeline items
-    function createInfiniteLoop() {
-        const trackContainer = timelineTrack;
-        const originalItems = Array.from(timelineItems);
+    // Create seamless back-and-forth scrolling
+    function createSeamlessScrolling() {
+        // Add event listeners to timeline items
+        addTimelineEventListeners();
 
-        // Clone all timeline items and append them for seamless looping
-        originalItems.forEach(item => {
-            const clone = item.cloneNode(true);
-            clone.classList.remove('active');
-            trackContainer.appendChild(clone);
-        });
-
-        // Update the timelineItems NodeList to include clones
-        window.allTimelineItems = trackContainer.querySelectorAll('.timeline-item');
+        // Track scrolling direction
+        window.scrollDirection = 1; // 1 for forward, -1 for backward
+        window.isReversing = false;
     }
 
-    // Update timeline position
+    // Update timeline position with back-and-forth scrolling
     function updateTimeline(index, smooth = true) {
-        if (index < 0 || index >= timelineItems.length) return;
+        const originalLength = timelineItems.length;
+
+        // Ensure index is within bounds
+        if (index < 0) index = 0;
+        if (index >= originalLength) index = originalLength - 1;
 
         currentIndex = index;
         const itemWidth = getItemWidth();
@@ -100,16 +95,12 @@ document.addEventListener('DOMContentLoaded', function() {
         timelineTrack.style.transform = `translateX(${offset}px)`;
 
         // Update progress bar
-        const progress = ((index + 1) / timelineItems.length) * 100;
+        const progress = ((index + 1) / originalLength) * 100;
         progressBar.style.width = `${progress}%`;
 
-        // Progress overlay removed
-
-        // Timeline segments removed
-
-        // Update navigation buttons
-        prevBtn.disabled = index === 0;
-        nextBtn.disabled = index === timelineItems.length - 1;
+        // Navigation buttons are always enabled
+        prevBtn.disabled = false;
+        nextBtn.disabled = false;
 
         // Update active states
         timelineItems.forEach((item, i) => {
@@ -119,18 +110,42 @@ document.addEventListener('DOMContentLoaded', function() {
         yearIndicators.forEach((indicator, i) => {
             indicator.classList.toggle('active', i === index);
         });
+
+        // Show/hide back to latest button
+        updateBackToLatestButton(index);
     }
 
-    // Navigation event listeners
+    // Update back to latest button visibility
+    function updateBackToLatestButton(index) {
+        if (index === 0) {
+            // Hide button when on the latest (first) position
+            backToLatestBtn.classList.remove('visible');
+        } else {
+            // Show button when not on the latest position
+            backToLatestBtn.classList.add('visible');
+        }
+    }
+
+    // Removed infinite loop transition handling
+
+    // Navigation event listeners with back-and-forth scrolling
     prevBtn.addEventListener('click', () => {
-        if (currentIndex > 0) {
-            updateTimeline(currentIndex - 1);
+        const newIndex = currentIndex - 1;
+        if (newIndex < 0) {
+            // At the beginning, go to the end
+            updateTimeline(timelineItems.length - 1);
+        } else {
+            updateTimeline(newIndex);
         }
     });
 
     nextBtn.addEventListener('click', () => {
-        if (currentIndex < timelineItems.length - 1) {
-            updateTimeline(currentIndex + 1);
+        const newIndex = currentIndex + 1;
+        if (newIndex >= timelineItems.length) {
+            // At the end, go back to the beginning
+            updateTimeline(0);
+        } else {
+            updateTimeline(newIndex);
         }
     });
 
@@ -141,49 +156,43 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Timeline dot clicks (now handled within timeline items)
-    timelineItems.forEach((item, index) => {
-        const dot = item.querySelector('.timeline-dot');
-        if (dot) {
-            dot.addEventListener('click', (e) => {
+    // Back to latest button click
+    backToLatestBtn.addEventListener('click', () => {
+        updateTimeline(0); // Go back to the first (latest) position
+    });
+
+    // Function to add event listeners to timeline items using event delegation
+    function addTimelineEventListeners() {
+        // Use event delegation on the timeline track
+        timelineTrack.addEventListener('click', function(e) {
+            const timelineItem = e.target.closest('.timeline-item');
+            if (!timelineItem) return;
+
+            // Handle expand button clicks
+            if (e.target.closest('.timeline-expand')) {
                 e.stopPropagation();
-                updateTimeline(index);
-            });
-        }
-    });
+                const details = timelineItem.querySelector('.timeline-details');
+                const isExpanded = timelineItem.classList.contains('expanded');
 
-    // Autoplay functionality
-    function startAutoplay() {
-        autoplayInterval = setInterval(() => {
-            if (currentIndex < timelineItems.length - 1) {
-                updateTimeline(currentIndex + 1);
-            } else {
-                updateTimeline(0); // Loop back to start
+                if (isExpanded) {
+                    timelineItem.classList.remove('expanded');
+                    details.classList.remove('expanded');
+                } else {
+                    timelineItem.classList.add('expanded');
+                    details.classList.add('expanded');
+                }
+                return;
             }
-        }, 4000);
+
+            // Handle timeline item navigation - much simpler now
+            const itemIndex = Array.from(timelineItems).indexOf(timelineItem);
+            if (itemIndex !== -1) {
+                updateTimeline(itemIndex);
+            }
+        });
     }
 
-    function stopAutoplay() {
-        if (autoplayInterval) {
-            clearInterval(autoplayInterval);
-            autoplayInterval = null;
-        }
-    }
-
-    autoplayToggle.addEventListener('click', () => {
-        isAutoplay = !isAutoplay;
-        const icon = autoplayToggle.querySelector('span:first-child');
-
-        if (isAutoplay) {
-            startAutoplay();
-            icon.textContent = '⏸️';
-            autoplayToggle.classList.add('active');
-        } else {
-            stopAutoplay();
-            icon.textContent = '▶️';
-            autoplayToggle.classList.remove('active');
-        }
-    });
+    // Removed autoplay functionality
 
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
@@ -192,16 +201,13 @@ document.addEventListener('DOMContentLoaded', function() {
         switch(e.key) {
             case 'ArrowLeft':
                 e.preventDefault();
-                if (currentIndex > 0) updateTimeline(currentIndex - 1);
+                prevBtn.click();
                 break;
             case 'ArrowRight':
                 e.preventDefault();
-                if (currentIndex < timelineItems.length - 1) updateTimeline(currentIndex + 1);
+                nextBtn.click();
                 break;
-            case ' ':
-                e.preventDefault();
-                autoplayToggle.click();
-                break;
+            // Removed spacebar autoplay toggle
         }
     });
 
@@ -226,46 +232,20 @@ document.addEventListener('DOMContentLoaded', function() {
         const diff = startX - endX;
 
         if (Math.abs(diff) > 50) { // Minimum swipe distance
-            if (diff > 0 && currentIndex < timelineItems.length - 1) {
-                updateTimeline(currentIndex + 1);
-            } else if (diff < 0 && currentIndex > 0) {
-                updateTimeline(currentIndex - 1);
+            if (diff > 0) {
+                nextBtn.click();
+            } else if (diff < 0) {
+                prevBtn.click();
             }
         }
 
         isDragging = false;
     });
 
-    // Expand/collapse functionality (preserved from original)
-    timelineItems.forEach(item => {
-        const expandButton = item.querySelector('.timeline-expand');
-        const details = item.querySelector('.timeline-details');
+    // Event listeners are now handled by addTimelineEventListeners() function
 
-        if (expandButton && details) {
-            expandButton.addEventListener('click', function(e) {
-                e.stopPropagation(); // Prevent timeline navigation
-                const isExpanded = item.classList.contains('expanded');
-
-                if (isExpanded) {
-                    item.classList.remove('expanded');
-                    details.classList.remove('expanded');
-                } else {
-                    item.classList.add('expanded');
-                    details.classList.add('expanded');
-                }
-            });
-        }
-
-        // Removed individual dot handling since dots are now separate
-
-        // Timeline item click to navigate
-        item.addEventListener('click', function() {
-            const index = Array.from(timelineItems).indexOf(item);
-            updateTimeline(index);
-        });
-    });
-
-    // Initialize timeline
+    // Initialize timeline with seamless scrolling
+    createSeamlessScrolling();
     updateTimeline(0, false);
 
     // Handle window resize
