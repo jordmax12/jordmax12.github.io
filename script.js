@@ -64,23 +64,16 @@ document.addEventListener('DOMContentLoaded', function() {
         return width + marginRight + 40; // 40px is the gap
     }
 
-    // Create seamless back-and-forth scrolling
-    function createSeamlessScrolling() {
-        // Add event listeners to timeline items
+    // Initialize timeline event listeners
+    function initializeTimeline() {
         addTimelineEventListeners();
-
-        // Track scrolling direction
-        window.scrollDirection = 1; // 1 for forward, -1 for backward
-        window.isReversing = false;
     }
 
-    // Update timeline position with back-and-forth scrolling
+    // Update timeline position
     function updateTimeline(index, smooth = true) {
-        const originalLength = timelineItems.length;
-
         // Ensure index is within bounds
         if (index < 0) index = 0;
-        if (index >= originalLength) index = originalLength - 1;
+        if (index >= timelineItems.length) index = timelineItems.length - 1;
 
         currentIndex = index;
         const itemWidth = getItemWidth();
@@ -95,12 +88,8 @@ document.addEventListener('DOMContentLoaded', function() {
         timelineTrack.style.transform = `translateX(${offset}px)`;
 
         // Update progress bar
-        const progress = ((index + 1) / originalLength) * 100;
+        const progress = ((index + 1) / timelineItems.length) * 100;
         progressBar.style.width = `${progress}%`;
-
-        // Navigation buttons are always enabled
-        prevBtn.disabled = false;
-        nextBtn.disabled = false;
 
         // Update active states
         timelineItems.forEach((item, i) => {
@@ -126,9 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Removed infinite loop transition handling
-
-    // Navigation event listeners with back-and-forth scrolling
+    // Navigation event listeners
     prevBtn.addEventListener('click', () => {
         const newIndex = currentIndex - 1;
         if (newIndex < 0) {
@@ -161,38 +148,30 @@ document.addEventListener('DOMContentLoaded', function() {
         updateTimeline(0); // Go back to the first (latest) position
     });
 
-    // Function to add event listeners to timeline items using event delegation
+    // Add event listeners using event delegation
     function addTimelineEventListeners() {
-        // Use event delegation on the timeline track
         timelineTrack.addEventListener('click', function(e) {
             const timelineItem = e.target.closest('.timeline-item');
             if (!timelineItem) return;
 
-            // Handle expand button clicks
+            // Handle expand/collapse
             if (e.target.closest('.timeline-expand')) {
                 e.stopPropagation();
                 const details = timelineItem.querySelector('.timeline-details');
                 const isExpanded = timelineItem.classList.contains('expanded');
 
-                if (isExpanded) {
-                    timelineItem.classList.remove('expanded');
-                    details.classList.remove('expanded');
-                } else {
-                    timelineItem.classList.add('expanded');
-                    details.classList.add('expanded');
-                }
+                timelineItem.classList.toggle('expanded', !isExpanded);
+                details.classList.toggle('expanded', !isExpanded);
                 return;
             }
 
-            // Handle timeline item navigation - much simpler now
+            // Handle navigation
             const itemIndex = Array.from(timelineItems).indexOf(timelineItem);
             if (itemIndex !== -1) {
                 updateTimeline(itemIndex);
             }
         });
     }
-
-    // Removed autoplay functionality
 
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
@@ -242,10 +221,8 @@ document.addEventListener('DOMContentLoaded', function() {
         isDragging = false;
     });
 
-    // Event listeners are now handled by addTimelineEventListeners() function
-
-    // Initialize timeline with seamless scrolling
-    createSeamlessScrolling();
+    // Initialize timeline
+    initializeTimeline();
     updateTimeline(0, false);
 
     // Handle window resize

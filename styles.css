@@ -517,8 +517,6 @@ body {
     100% { left: 100%; }
 }
 
-/* Removed unused timeline segments and progress overlay styles */
-
 .timeline-item {
     position: relative;
     min-width: 350px;
@@ -531,8 +529,6 @@ body {
 .timeline-item:hover {
     transform: translateY(-10px);
 }
-
-/* Removed unused timeline-dots container */
 
 .timeline-dot {
     width: 20px;
@@ -755,8 +751,6 @@ body {
 .timeline-item:nth-child(5) .timeline-content { border-color: var(--accent-tertiary); }
 .timeline-item:nth-child(6) .timeline-content { border-color: var(--accent-quaternary); }
 
-/* Removed autoplay styles */
-
 /* Projects Section */
 .project-item {
     margin-bottom: 25px;
@@ -929,7 +923,6 @@ body {
         transform: translateY(-5px);
     }
 
-    /* Removed autoplay mobile styles */
 }
 
 @media (max-width: 480px) {
