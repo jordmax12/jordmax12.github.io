@@ -45,10 +45,60 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
 
-    // Add subtle hover effects to experience and project items
-    const experienceItems = document.querySelectorAll('.experience-item, .project-item');
+    // Interactive Timeline Functionality
+    const timelineItems = document.querySelectorAll('.timeline-item');
     
-    experienceItems.forEach(item => {
+    timelineItems.forEach(item => {
+        const expandButton = item.querySelector('.timeline-expand');
+        const details = item.querySelector('.timeline-details');
+        
+        if (expandButton && details) {
+            expandButton.addEventListener('click', function() {
+                const isExpanded = item.classList.contains('expanded');
+                
+                if (isExpanded) {
+                    // Collapse
+                    item.classList.remove('expanded');
+                    details.classList.remove('expanded');
+                } else {
+                    // Expand
+                    item.classList.add('expanded');
+                    details.classList.add('expanded');
+                }
+            });
+        }
+        
+        // Timeline dot click to expand/collapse
+        const dot = item.querySelector('.timeline-dot');
+        if (dot) {
+            dot.addEventListener('click', function() {
+                expandButton.click(); // Trigger the same expand/collapse logic
+            });
+        }
+    });
+    
+    // Timeline scroll animation
+    const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = 'translateX(0)';
+            }
+        });
+    }, { threshold: 0.2 });
+
+    timelineItems.forEach((item, index) => {
+        // Stagger the initial animation
+        item.style.opacity = 0;
+        item.style.transform = 'translateX(-50px)';
+        item.style.transition = `opacity 0.6s ease-out ${index * 0.1}s, transform 0.6s ease-out ${index * 0.1}s`;
+        timelineObserver.observe(item);
+    });
+    
+    // Add subtle hover effects to project items
+    const projectItems = document.querySelectorAll('.project-item');
+    
+    projectItems.forEach(item => {
         item.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-2px)';
             this.style.boxShadow = '0 4px 12px var(--shadow)';
