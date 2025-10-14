@@ -265,4 +265,25 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add transition for smooth hover effect
         item.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
     });
+
+    // Initialize Typed.js for the title animation
+    const typed = new Typed('#typed-title', {
+        strings: [
+            'Lead Software Engineer',
+            'AWS Developer',
+            'Animal lover',
+            'PC Builder',
+            'Serverless Expert',
+            'King of Event Driven Microservices',
+            'Breaker of Chains'
+        ],
+        typeSpeed: 50,
+        backSpeed: 30,
+        backDelay: 2000,
+        startDelay: 500,
+        loop: true,
+        showCursor: true,
+        cursorChar: '|',
+        smartBackspace: true
+    });
 });
