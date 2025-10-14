@@ -713,49 +713,49 @@ body {
 }
 
 /* Timeline dot specific colors */
-.timeline-item:nth-child(1) .timeline-dot {
+.timeline-item:nth-child(2) .timeline-dot {
     background: var(--accent-primary);
     box-shadow: 0 0 0 2px var(--accent-primary);
 }
 
-.timeline-item:nth-child(2) .timeline-dot {
+.timeline-item:nth-child(3) .timeline-dot {
     background: var(--accent-orange);
     box-shadow: 0 0 0 2px var(--accent-orange);
 }
 
-.timeline-item:nth-child(3) .timeline-dot {
+.timeline-item:nth-child(4) .timeline-dot {
     background: var(--accent-purple);
     box-shadow: 0 0 0 2px var(--accent-purple);
 }
 
-.timeline-item:nth-child(4) .timeline-dot {
+.timeline-item:nth-child(5) .timeline-dot {
     background: var(--accent-teal);
     box-shadow: 0 0 0 2px var(--accent-teal);
 }
 
-.timeline-item:nth-child(5) .timeline-dot {
-    background: var(--accent-tertiary);
-    box-shadow: 0 0 0 2px var(--accent-tertiary);
-}
-
 .timeline-item:nth-child(6) .timeline-dot {
-    background: var(--accent-quaternary);
-    box-shadow: 0 0 0 2px var(--accent-quaternary);
+    background: var(--accent-primary);
+    box-shadow: 0 0 0 2px var(--accent-primary);
 }
 
 .timeline-item:nth-child(7) .timeline-dot {
+    background: var(--accent-orange);
+    box-shadow: 0 0 0 2px var(--accent-orange);
+}
+
+.timeline-item:nth-child(8) .timeline-dot {
     background: var(--accent-purple);
     box-shadow: 0 0 0 2px var(--accent-purple);
 }
 
 /* Timeline item specific colors */
-.timeline-item:nth-child(1) .timeline-content { border-color: var(--accent-primary); }
-.timeline-item:nth-child(2) .timeline-content { border-color: var(--accent-orange); }
-.timeline-item:nth-child(3) .timeline-content { border-color: var(--accent-purple); }
-.timeline-item:nth-child(4) .timeline-content { border-color: var(--accent-teal); }
-.timeline-item:nth-child(5) .timeline-content { border-color: var(--accent-tertiary); }
-.timeline-item:nth-child(6) .timeline-content { border-color: var(--accent-quaternary); }
-.timeline-item:nth-child(7) .timeline-content { border-color: var(--accent-purple); }
+.timeline-item:nth-child(2) .timeline-content { border-color: var(--accent-primary); }
+.timeline-item:nth-child(3) .timeline-content { border-color: var(--accent-orange); }
+.timeline-item:nth-child(4) .timeline-content { border-color: var(--accent-purple); }
+.timeline-item:nth-child(5) .timeline-content { border-color: var(--accent-teal); }
+.timeline-item:nth-child(6) .timeline-content { border-color: var(--accent-primary); }
+.timeline-item:nth-child(7) .timeline-content { border-color: var(--accent-orange); }
+.timeline-item:nth-child(8) .timeline-content { border-color: var(--accent-purple); }
 
 /* Projects Section */
 .project-item {
@@ -764,6 +764,24 @@ body {
     background: var(--bg-secondary);
     border-radius: 8px;
     border-left: 4px solid var(--accent-tertiary);
+}
+
+/* Feastables project cards - red */
+.project-feastables {
+    border-left-color: var(--accent-tertiary) !important;
+}
+
+.project-feastables .project-company {
+    color: var(--accent-tertiary) !important;
+}
+
+/* Open source project cards - green */
+.project-opensource {
+    border-left-color: var(--accent-quaternary) !important;
+}
+
+.project-opensource .project-company {
+    color: var(--accent-quaternary) !important;
 }
 
 .project-item h4 {
