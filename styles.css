@@ -757,6 +757,26 @@ body {
 .timeline-item:nth-child(7) .timeline-content { border-color: var(--accent-orange); }
 .timeline-item:nth-child(8) .timeline-content { border-color: var(--accent-purple); }
 
+/* Typed.js color cycling animation */
+#typed-title {
+    transition: color 0.5s ease;
+}
+
+.typed-color-blue { color: var(--accent-primary); }
+.typed-color-gold { color: var(--accent-orange); }
+.typed-color-purple { color: var(--accent-purple); }
+.typed-color-teal { color: var(--accent-teal); }
+
+/* Typed.js cursor color cycling */
+.typed-cursor {
+    transition: color 0.5s ease;
+}
+
+.typed-color-blue .typed-cursor { color: var(--accent-primary); }
+.typed-color-gold .typed-cursor { color: var(--accent-orange); }
+.typed-color-purple .typed-cursor { color: var(--accent-purple); }
+.typed-color-teal .typed-cursor { color: var(--accent-teal); }
+
 /* Projects Section */
 .project-item {
     margin-bottom: 25px;

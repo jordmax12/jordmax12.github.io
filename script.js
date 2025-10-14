@@ -266,16 +266,20 @@ document.addEventListener('DOMContentLoaded', function() {
         item.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
     });
 
-    // Initialize Typed.js for the title animation
+    // Initialize Typed.js for the title animation with color cycling
+    const colorClasses = ['typed-color-blue', 'typed-color-gold', 'typed-color-purple', 'typed-color-teal'];
+
+    const typedElement = document.getElementById('typed-title');
+    const h2Element = typedElement.parentElement; // Get the h2 parent element
+
     const typed = new Typed('#typed-title', {
         strings: [
             'Lead Software Engineer',
             'AWS Developer',
-            'Animal lover',
-            'PC Builder',
             'Serverless Expert',
             'King of Event Driven Microservices',
-            'Breaker of Chains'
+            'Breaker of Chains',
+            'PC Builder',
         ],
         typeSpeed: 50,
         backSpeed: 30,
@@ -284,6 +288,20 @@ document.addEventListener('DOMContentLoaded', function() {
         loop: true,
         showCursor: true,
         cursorChar: '|',
-        smartBackspace: true
+        smartBackspace: true,
+        preStringTyped: function(arrayPos, self) {
+            // Use arrayPos to cycle through colors (mod 4 for our 4 colors)
+            const colorIndex = arrayPos % 4;
+
+            // Remove all color classes from both text and h2 (for cursor)
+            colorClasses.forEach(cls => {
+                typedElement.classList.remove(cls);
+                h2Element.classList.remove(cls);
+            });
+
+            // Add the current color class based on array position
+            typedElement.classList.add(colorClasses[colorIndex]);
+            h2Element.classList.add(colorClasses[colorIndex]);
+        }
     });
 });
