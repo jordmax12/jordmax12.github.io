@@ -874,8 +874,12 @@ body {
     }
 
     .contact-info {
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: row; /* Keep horizontal layout */
+        justify-content: center; /* Center the items */
+        flex-wrap: wrap; /* Allow wrapping if needed */
+        gap: 15px; /* Slightly larger gap for better spacing */
+        align-items: center;
+        text-align: center;
     }
 
     .skills-categories {
