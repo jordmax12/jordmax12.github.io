@@ -339,11 +339,11 @@ body {
         box-shadow: 0 6px 20px rgba(74, 158, 255, 0.4);
         transform: scale(1.02);
     }
-    
+
     .timeline-nav.expanded .timeline-nav-btn:hover {
         transform: scale(1.12);
     }
-    
+
     /* Ensure progress bar gets more space when expanded */
     .timeline-nav.expanded .timeline-progress {
         margin: 0 10px;
@@ -910,9 +910,7 @@ body {
 
 
     .timeline-nav-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1em;
+        display: none; /* Hide navigation arrows on mobile */
     }
 
     .timeline-years {
@@ -970,6 +968,10 @@ body {
     }
 
     /* Extra small screens timeline adjustments */
+    .timeline-nav-btn {
+        display: none; /* Hide navigation arrows on extra small screens */
+    }
+
     .timeline-item {
         min-width: 250px;
         max-width: 280px;
