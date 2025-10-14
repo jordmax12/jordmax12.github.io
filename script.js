@@ -104,14 +104,22 @@ document.addEventListener('DOMContentLoaded', function() {
         updateBackToLatestButton(index);
     }
 
-    // Update back to latest button visibility
+    // Update back to latest button visibility and navigation expansion
     function updateBackToLatestButton(index) {
+        const timelineNav = document.querySelector('.timeline-nav');
+        
         if (index === 0) {
             // Hide button when on the latest (first) position
             backToLatestBtn.classList.remove('visible');
+            // Expand navigation buttons on larger screens only
+            if (window.innerWidth > 768) {
+                timelineNav.classList.add('expanded');
+            }
         } else {
             // Show button when not on the latest position
             backToLatestBtn.classList.add('visible');
+            // Remove expanded state
+            timelineNav.classList.remove('expanded');
         }
     }
 
@@ -228,6 +236,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle window resize
     window.addEventListener('resize', () => {
         updateTimeline(currentIndex, false);
+        
+        // Update expanded state based on screen size
+        const timelineNav = document.querySelector('.timeline-nav');
+        if (window.innerWidth <= 768) {
+            // Remove expanded state on mobile/tablet
+            timelineNav.classList.remove('expanded');
+        } else if (currentIndex === 0) {
+            // Re-add expanded state on desktop if on first item
+            timelineNav.classList.add('expanded');
+        }
     });
 
     // Timeline container entrance animation
