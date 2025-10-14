@@ -79,6 +79,7 @@
                     <div class="year-indicator">2017-2019</div>
                     <div class="year-indicator">2016-2017</div>
                     <div class="year-indicator">2015-2016</div>
+                    <div class="year-indicator">2012-2015</div>
                 </div>
 
                 <!-- Timeline Track -->
@@ -224,6 +225,30 @@
                     </div>
                 </div>
 
+                <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h4>Columbia College Chicago</h4>
+                            <span class="timeline-role">Bachelor of Science</span>
+                            <span class="timeline-date">August 2012 - May 2015</span>
+                        </div>
+                        <p class="timeline-description">Software & Mobile Development program focusing on modern programming languages and mobile application development.</p>
+                        <div class="timeline-details">
+                            <ul>
+                                <li>Studied Data Structures, Algorithms, and Software Engineering principles</li>
+                                <li>Gained expertise in C++, C#, .NET, and Objective-C programming languages</li>
+                                <li>Developed mobile applications and learned database design fundamentals</li>
+                                <li>Completed coursework in Game Development and Game Programming</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-expand">
+                            <span class="expand-text">Show</span>
+                            <span class="expand-icon">▼</span>
+                        </div>
+                    </div>
+                </div>
+
                 </div> <!-- Close timeline-track -->
             </div> <!-- Close timeline-container -->
         </section>
@@ -233,15 +258,19 @@
             <h3>Key Projects</h3>
 
             <div class="project-item">
-                <h4>Receipt Validation Suite</h4>
+                <h4>Purchase Validation Suite</h4>
                 <span class="project-company">Feastables</span>
-                <p>Designed a high-performance service processing 4M+ receipt uploads, enabling fraud detection, sweepstakes, and loyalty programs with real-time analytics. Achieved 99.9% accuracy in fraud detection while maintaining sub-second response times.</p>
+                <p>Designed a high-performance service processing 4M+ receipt uploads, enabling fraud detection, sweepstakes, rebates, and loyalty programs with real-time analytics. Achieved 96%+ accuracy in fraud detection and 99%+ accuracy in digital vs paper receipt detection while maintaining sub-10 response times (industry standard 1-2 days).</p>
+                <br>
+                <p>Saved Feastables $1-2M+ per year with our exponentially cheaper and exponentially faster in-house purchase validation suite by leveraging modern AWS-based technologies like Lambda, Textract, SQS, SNS, and DynamoDB.</p>
             </div>
 
             <div class="project-item">
                 <h4>World's Biggest Game of Rock Paper Scissors</h4>
                 <span class="project-company">Feastables</span>
                 <p>Launched viral campaign in 3 weeks, scaling to 600K+ users and 1.5M games, with a $50,000 prize and MrBeast video feature. Built serverless architecture to handle massive concurrent load spikes.</p>
+                <br>
+                <p>Analytics and live leaderboard available to users in real time with our serverless architecture. Enhanced matchmaking and ranking system enabled us to avoid users gaming the system.</p>
             </div>
 
             <div class="project-item">
@@ -252,13 +281,15 @@
 
             <div class="project-item">
                 <h4>Chrome Extension Job Autofiller</h4>
-                <span class="project-company">Personal Project</span>
-                <p>Developed a Chrome extension to automate job application processes, reducing application time by 80%. Features intelligent form detection and data population across multiple job platforms.</p>
+                <span class="project-company">Open Source</span>
+                <p>Developed a Chrome extension to automate job application processes, reducing application time by 80%. Features intelligent form detection and data population across multiple job platforms. Automatically detects the fields it needs to fill out and saves the data locally for future use in other job applications.</p>
+                <br>
+                <p>[Roadmap] Uses AI to help assist auto-filling tedious job application forms and applications.</p>
             </div>
         </section>
 
         <!-- Education Section -->
-        <section class="resume-section">
+        <section class="resume-section"  style="display: none !important;">
             <h3>Education</h3>
             <div class="education-item">
                 <div class="education-header">

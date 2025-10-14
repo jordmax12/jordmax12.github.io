@@ -743,6 +743,11 @@ body {
     box-shadow: 0 0 0 2px var(--accent-quaternary);
 }
 
+.timeline-item:nth-child(7) .timeline-dot {
+    background: var(--accent-purple);
+    box-shadow: 0 0 0 2px var(--accent-purple);
+}
+
 /* Timeline item specific colors */
 .timeline-item:nth-child(1) .timeline-content { border-color: var(--accent-primary); }
 .timeline-item:nth-child(2) .timeline-content { border-color: var(--accent-orange); }
@@ -750,6 +755,7 @@ body {
 .timeline-item:nth-child(4) .timeline-content { border-color: var(--accent-teal); }
 .timeline-item:nth-child(5) .timeline-content { border-color: var(--accent-tertiary); }
 .timeline-item:nth-child(6) .timeline-content { border-color: var(--accent-quaternary); }
+.timeline-item:nth-child(7) .timeline-content { border-color: var(--accent-purple); }
 
 /* Projects Section */
 .project-item {
