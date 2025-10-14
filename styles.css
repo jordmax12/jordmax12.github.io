@@ -329,7 +329,7 @@ body {
     z-index: 2;
 }
 
-/* Expanded state when Latest button is hidden - desktop only */
+/* Expanded state - desktop only */
 @media (min-width: 769px) {
     .timeline-nav.expanded .timeline-nav-btn {
         width: 55px;
@@ -363,38 +363,8 @@ body {
     box-shadow: none;
 }
 
-/* Back to Latest Button */
-.back-to-latest {
-    background: var(--accent-quaternary);
-    color: white;
-    border: none;
-    border-radius: 25px;
-    padding: 8px 16px;
-    cursor: pointer;
-    display: none; /* Completely hidden by default */
-    align-items: center;
-    gap: 6px;
-    font-size: 0.9em;
-    font-weight: 500;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
-    opacity: 0;
-    transform: translateX(30px) scale(0.8);
-    pointer-events: none;
-    margin-left: 15px;
-    z-index: 3;
-    flex-shrink: 0;
-    white-space: nowrap;
-}
 
-.back-to-latest.visible {
-    display: flex; /* Show when visible */
-    opacity: 1;
-    transform: translateX(0) scale(1);
-    pointer-events: all;
-}
-
-/* Progress bar expands when Latest button is hidden */
+/* Progress bar styling */
 .timeline-progress {
     flex: 1;
     height: 6px;
@@ -405,33 +375,9 @@ body {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Expanded progress bar when Latest button is hidden */
+/* Expanded progress bar styling */
 .timeline-nav.expanded .timeline-progress {
     margin: 0 20px; /* Add margin on both sides to prevent bleeding into buttons */
-}
-
-.back-to-latest:hover {
-    background: var(--accent-quaternary);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
-}
-
-.back-to-latest:active {
-    transform: translateY(0);
-}
-
-.back-icon {
-    font-size: 1.1em;
-    transition: transform 0.3s ease;
-}
-
-.back-to-latest:hover .back-icon {
-    transform: rotate(-180deg);
-}
-
-.back-text {
-    font-size: 0.85em;
-    font-weight: 600;
 }
 
 
@@ -962,11 +908,6 @@ body {
         gap: 15px;
     }
 
-    .back-to-latest {
-        margin-left: 0;
-        margin-top: 10px;
-        align-self: center;
-    }
 
     .timeline-nav-btn {
         width: 40px;
