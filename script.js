@@ -52,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextBtn = document.getElementById('timeline-next');
     const progressBar = document.getElementById('timeline-progress');
     const yearIndicators = document.querySelectorAll('.year-indicator');
-    const backToLatestBtn = document.getElementById('back-to-latest');
     let currentIndex = 0;
 
     // Calculate item width including gap
@@ -100,26 +99,17 @@ document.addEventListener('DOMContentLoaded', function() {
             indicator.classList.toggle('active', i === index);
         });
 
-        // Show/hide back to latest button
-        updateBackToLatestButton(index);
+        // Update navigation state
+        updateNavigationState(index);
     }
 
-    // Update back to latest button visibility and navigation expansion
-    function updateBackToLatestButton(index) {
+    // Update navigation state (always expanded now)
+    function updateNavigationState(index) {
         const timelineNav = document.querySelector('.timeline-nav');
         
-        if (index === 0) {
-            // Hide button when on the latest (first) position
-            backToLatestBtn.classList.remove('visible');
-            // Expand navigation buttons on larger screens only
-            if (window.innerWidth > 768) {
-                timelineNav.classList.add('expanded');
-            }
-        } else {
-            // Show button when not on the latest position
-            backToLatestBtn.classList.add('visible');
-            // Remove expanded state
-            timelineNav.classList.remove('expanded');
+        // Always keep navigation expanded on larger screens
+        if (window.innerWidth > 768) {
+            timelineNav.classList.add('expanded');
         }
     }
 
@@ -151,10 +141,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Back to latest button click
-    backToLatestBtn.addEventListener('click', () => {
-        updateTimeline(0); // Go back to the first (latest) position
-    });
 
     // Add event listeners using event delegation
     function addTimelineEventListeners() {
@@ -242,8 +228,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.innerWidth <= 768) {
             // Remove expanded state on mobile/tablet
             timelineNav.classList.remove('expanded');
-        } else if (currentIndex === 0) {
-            // Re-add expanded state on desktop if on first item
+        } else {
+            // Always expanded on desktop now
             timelineNav.classList.add('expanded');
         }
     });
