@@ -319,7 +319,7 @@ body {
     width: 45px;
     height: 45px;
     cursor: pointer;
-    display: flex;
+    display: none; /* Hide navigation arrows on all devices */
     align-items: center;
     justify-content: center;
     font-size: 1.2em;
@@ -518,9 +518,9 @@ body {
     cursor: pointer;
 }
 
-.timeline-item:hover {
+/* .timeline-item:hover {
     transform: translateY(-10px);
-}
+} */
 
 .timeline-dot {
     width: 20px;
@@ -562,11 +562,11 @@ body {
     transform: translateY(0%);
 }
 
-.timeline-item:hover .timeline-content {
+/* .timeline-item:hover .timeline-content {
     box-shadow: 0 15px 40px var(--shadow);
     border-color: var(--accent-primary);
     transform: translateY(-5px);
-}
+} */
 
 .timeline-item.active .timeline-content {
     border-color: var(--accent-primary);
@@ -904,13 +904,19 @@ body {
     }
 
     .timeline-nav {
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: row; /* Keep horizontal layout on mobile */
+        justify-content: center; /* Center the year indicators */
+        gap: 0; /* Remove gap since buttons are hidden */
+        margin-bottom: 20px; /* Reduce bottom margin */
+        min-height: auto; /* Remove fixed height */
     }
-
 
     .timeline-nav-btn {
         display: none; /* Hide navigation arrows on mobile */
+    }
+
+    .timeline-progress {
+        display: none; /* Hide progress bar on mobile */
     }
 
     .timeline-years {
@@ -933,9 +939,9 @@ body {
         max-width: 320px;
     }
 
-    .timeline-item:hover {
+    /* .timeline-item:hover {
         transform: translateY(-5px);
-    }
+    } */
 
     .timeline-dot {
         width: 16px;
@@ -948,9 +954,9 @@ body {
         transform: translateY(0%);
     }
 
-    .timeline-item:hover .timeline-content {
+    /* .timeline-item:hover .timeline-content {
         transform: translateY(-5px);
-    }
+    } */
 
 }
 
@@ -968,8 +974,16 @@ body {
     }
 
     /* Extra small screens timeline adjustments */
+    .timeline-nav {
+        margin-bottom: 15px; /* Further reduce margin on extra small screens */
+    }
+
     .timeline-nav-btn {
         display: none; /* Hide navigation arrows on extra small screens */
+    }
+
+    .timeline-progress {
+        display: none; /* Hide progress bar on extra small screens */
     }
 
     .timeline-item {
@@ -983,9 +997,9 @@ body {
         transform: translateY(0%);
     }
 
-    .timeline-item:hover .timeline-content {
+    /* .timeline-item:hover .timeline-content {
         transform: translateY(-5px);
-    }
+    } */
 
     .timeline-nav {
         padding: 0 10px;

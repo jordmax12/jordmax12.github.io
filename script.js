@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update navigation state (always expanded now)
     function updateNavigationState(index) {
         const timelineNav = document.querySelector('.timeline-nav');
-        
+
         // Always keep navigation expanded on larger screens
         if (window.innerWidth > 768) {
             timelineNav.classList.add('expanded');
@@ -215,6 +215,78 @@ document.addEventListener('DOMContentLoaded', function() {
         isDragging = false;
     });
 
+    // Mouse drag support for desktop - using event delegation
+    let isMouseDown = false;
+    let mouseStartX = 0;
+    let isMouseDragging = false;
+
+    // Use document-level events to ensure we catch all mouse interactions
+    document.addEventListener('mousedown', (e) => {
+        // Check if the click is within the timeline track
+        if (!timelineTrack.contains(e.target)) return;
+
+        // Skip if clicking on expand button
+        if (e.target.closest('.timeline-expand')) return;
+
+        mouseStartX = e.clientX;
+        isMouseDown = true;
+        isMouseDragging = false;
+
+        // Set cursor on the timeline track and any timeline items
+        timelineTrack.style.cursor = 'grabbing';
+        const clickedItem = e.target.closest('.timeline-item');
+        if (clickedItem) {
+            clickedItem.style.cursor = 'grabbing';
+        }
+
+        e.preventDefault(); // Prevent text selection
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (!isMouseDown) return;
+
+        const currentX = e.clientX;
+        const diff = Math.abs(mouseStartX - currentX);
+
+        // Start dragging if mouse moved more than 5px
+        if (diff > 5) {
+            isMouseDragging = true;
+        }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+        if (!isMouseDown) return;
+
+        if (isMouseDragging) {
+            const endX = e.clientX;
+            const diff = mouseStartX - endX;
+
+            if (Math.abs(diff) > 50) { // Minimum drag distance
+                if (diff > 0) {
+                    nextBtn.click();
+                } else if (diff < 0) {
+                    prevBtn.click();
+                }
+            }
+        }
+
+        // Reset state and cursors
+        isMouseDown = false;
+        isMouseDragging = false;
+        timelineTrack.style.cursor = 'grab';
+
+        // Reset cursor for all timeline items
+        timelineItems.forEach(item => {
+            item.style.cursor = 'grab';
+        });
+    });
+
+    // Set initial cursor styles
+    timelineTrack.style.cursor = 'grab';
+    timelineItems.forEach(item => {
+        item.style.cursor = 'grab';
+    });
+
     // Initialize timeline
     initializeTimeline();
     updateTimeline(0, false);
@@ -222,7 +294,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle window resize
     window.addEventListener('resize', () => {
         updateTimeline(currentIndex, false);
-        
+
         // Update expanded state based on screen size
         const timelineNav = document.querySelector('.timeline-nav');
         if (window.innerWidth <= 768) {
