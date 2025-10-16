@@ -1,0 +1,779 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colors inspired by receipt validation suite */
+    --purple-primary: #6b46c1;
+    --purple-dark: #553c9a;
+    --purple-light: #9f7aea;
+    --orange-accent: #ff6b35;
+    --teal-accent: #48c9b0;
+    --bg-dark: #1a1a1a;
+    --bg-card: #2a2a2a;
+    --text-light: #ffffff;
+    --text-gray: #b0b0b0;
+    --border-color: #404040;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Animated Background */
+.showcase-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+        #2d1b69 0%,
+        #4a2c7f 25%,
+        #6b46c1 50%,
+        #553c9a 75%,
+        #2d1b69 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    z-index: -1;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Back Button */
+.back-button {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-3px);
+}
+
+/* Main Container */
+.showcase-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    position: relative;
+}
+
+/* Header */
+.showcase-header {
+    text-align: center;
+    margin-bottom: 60px;
+    margin-top: 40px;
+    animation: fadeInDown 0.8s ease;
+}
+
+.showcase-header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #ffffff 0%, #bb7ae8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+    font-weight: 400;
+}
+
+/* Theater Section */
+.theater-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 700px;
+    margin-bottom: 60px;
+}
+
+/* Floating Stat Cards */
+.stat-card {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 20px 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    animation: float 3s ease-in-out infinite;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px) scale(1.05);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(107, 70, 193, 0.3);
+}
+
+.stat-icon {
+    font-size: 2rem;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-light);
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    font-weight: 500;
+}
+
+/* Position stat cards around phone */
+.stat-1 {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.stat-2 {
+    top: 10%;
+    right: 5%;
+    animation-delay: 0.5s;
+}
+
+.stat-3 {
+    bottom: 20%;
+    left: 5%;
+    animation-delay: 1s;
+}
+
+.stat-4 {
+    bottom: 20%;
+    right: 5%;
+    animation-delay: 1.5s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Phone Mockup */
+.phone-mockup {
+    position: relative;
+    z-index: 10;
+    animation: fadeIn 1s ease 0.3s both;
+}
+
+.phone-frame {
+    width: 375px;
+    height: 750px;
+    background: #1a1a1a;
+    border-radius: 50px;
+    padding: 15px;
+    box-shadow:
+        0 0 0 12px #2d2d2d,
+        0 0 0 14px #1a1a1a,
+        0 30px 60px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Phone Notch */
+.phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 28px;
+    background: #1a1a1a;
+    border-radius: 0 0 20px 20px;
+    z-index: 100;
+}
+
+/* Phone Screen */
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    background: #fafafa;
+    border-radius: 40px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Screen Content */
+.screen-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    background: #fafafa;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.screen-content::-webkit-scrollbar {
+    display: none;
+}
+
+.screen-content.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.screen-content.prev {
+    transform: translateX(-100%);
+}
+
+.screen-inner {
+    flex: 1;
+    padding: 50px 30px 30px;
+    overflow-y: auto;
+}
+
+/* Logo Container */
+.logo-container {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #ff6b35;
+    line-height: 1.2;
+    text-shadow: 2px 2px 0 #333;
+}
+
+/* Form Sections */
+.form-section h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1e3a5f;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.form-subtitle {
+    font-size: 0.95rem;
+    color: #1e3a5f;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.form-subtitle-small {
+    font-size: 0.75rem;
+    color: #1e3a5f;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.form-subtitle strong {
+    font-weight: 700;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #1e3a5f;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+/* Phone Input Group */
+.phone-input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.country-select {
+    flex: 0 0 80px;
+    padding: 12px;
+    border: 2px solid #d0d0d0;
+    border-radius: 8px;
+    background: white;
+    font-size: 0.9rem;
+    color: #333;
+    cursor: pointer;
+}
+
+.phone-input,
+.form-input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #d0d0d0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #333;
+    background: white;
+    transition: border-color 0.3s ease;
+}
+
+.phone-input:focus,
+.form-input:focus {
+    outline: none;
+    border-color: #6b46c1;
+}
+
+/* Checkbox Group */
+.checkbox-group {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    font-size: 0.8rem;
+    color: #333;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.checkbox-group a {
+    color: #6b46c1;
+    text-decoration: underline;
+}
+
+/* OTP Input */
+.otp-input-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    margin: 30px 0;
+}
+
+.otp-box {
+    aspect-ratio: 1;
+    border: 2px solid #d0d0d0;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    background: white;
+}
+
+/* Info Section (Step 3) */
+.info-section {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    border: 2px solid #6b46c1;
+}
+
+.info-section h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #1e3a5f;
+    margin-bottom: 15px;
+}
+
+.checklist {
+    margin-bottom: 15px;
+}
+
+.checklist-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.check-icon {
+    color: #2ecc71;
+    font-weight: 900;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.watch-video-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 10px;
+    background: #ff6b35;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+/* Upload Section */
+.upload-section {
+    margin-top: 20px;
+}
+
+.upload-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 15px;
+    background: white;
+    color: #6b46c1;
+    border: 3px dashed #6b46c1;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-button:hover {
+    background: #f0e7ff;
+}
+
+/* Privacy Link */
+.privacy-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #6b46c1;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+/* Buttons */
+.next-button,
+.submit-button {
+    width: 100%;
+    padding: 18px;
+    background: #ff6b35;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.next-button:hover,
+.submit-button:hover {
+    background: #ff5520;
+    transform: scale(1.02);
+}
+
+.button-group {
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.back-button-screen {
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    color: #ff6b35;
+    border: 2px solid #ff6b35;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-button-screen:hover {
+    background: #fff5f2;
+}
+
+/* Phone Home Indicator */
+.phone-home-indicator {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+/* Navigation Controls */
+.navigation-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 40px;
+    animation: fadeIn 1s ease 0.5s both;
+}
+
+.nav-arrow {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-arrow:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.nav-arrow:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.step-indicators {
+    display: flex;
+    gap: 15px;
+}
+
+.step-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.step-dot:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.2);
+}
+
+.step-dot.active {
+    background: white;
+    width: 40px;
+    border-radius: 6px;
+}
+
+/* Step Description */
+.step-description {
+    max-width: 600px;
+    margin: 40px auto 0;
+    text-align: center;
+    position: relative;
+    min-height: 120px;
+}
+
+.description-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.description-content.active {
+    opacity: 1;
+    transform: translateY(0);
+    position: relative;
+}
+
+.description-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.description-content p {
+    font-size: 1rem;
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .stat-card {
+        padding: 15px 20px;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+    }
+
+    .stat-label {
+        font-size: 0.75rem;
+    }
+
+    .stat-1 { left: 2%; }
+    .stat-2 { right: 2%; }
+    .stat-3 { left: 2%; }
+    .stat-4 { right: 2%; }
+}
+
+@media (max-width: 768px) {
+    .showcase-header h1 {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .back-button {
+        top: 20px;
+        left: 20px;
+        padding: 10px 15px;
+        font-size: 0.85rem;
+    }
+
+    /* Hide stats on mobile */
+    .stat-card {
+        display: none;
+    }
+
+    .theater-section {
+        min-height: auto;
+    }
+
+    .phone-frame {
+        width: 320px;
+        height: 640px;
+        border-radius: 40px;
+        padding: 12px;
+    }
+
+    .phone-notch {
+        width: 120px;
+        height: 24px;
+    }
+
+    .screen-inner {
+        padding: 40px 20px 20px;
+    }
+
+    .logo-text {
+        font-size: 1.5rem;
+    }
+
+    .form-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .navigation-controls {
+        gap: 20px;
+    }
+
+    .nav-arrow {
+        width: 45px;
+        height: 45px;
+    }
+
+    .description-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .description-content p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .showcase-container {
+        padding: 20px 10px;
+    }
+
+    .showcase-header {
+        margin-bottom: 40px;
+    }
+
+    .phone-frame {
+        width: 280px;
+        height: 560px;
+    }
+
+    .screen-inner {
+        padding: 35px 15px 15px;
+    }
+
+    .step-description {
+        padding: 0 20px;
+    }
+}
+
