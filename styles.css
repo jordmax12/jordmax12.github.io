@@ -770,12 +770,33 @@ body {
 .typed-color-teal .typed-cursor { color: var(--accent-teal); }
 
 /* Projects Section */
-.project-item {
+.project-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
     margin-bottom: 25px;
+    transition: transform 0.3s ease;
+}
+
+.project-link:hover {
+    transform: translateY(-3px);
+}
+
+.project-link:hover .project-item {
+    box-shadow: 0 8px 20px var(--shadow);
+}
+
+.project-item {
+    margin-bottom: 0;
     padding: 20px;
     background: var(--bg-secondary);
     border-radius: 8px;
     border-left: 4px solid var(--accent-tertiary);
+    transition: box-shadow 0.3s ease;
+}
+
+.project-item:not(.project-link .project-item) {
+    margin-bottom: 25px;
 }
 
 /* Feastables project cards - red */
@@ -815,6 +836,31 @@ body {
     color: var(--text-tertiary);
     font-size: 0.95em;
     margin: 0;
+}
+
+/* View Demo Badge */
+.view-demo-badge {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-purple));
+    border-radius: 25px;
+    font-size: 0.85em;
+    font-weight: 600;
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(74, 158, 255, 0.3);
+}
+
+.project-link:hover .view-demo-badge {
+    transform: translateX(5px);
+    box-shadow: 0 6px 15px rgba(74, 158, 255, 0.5);
+}
+
+.view-demo-badge span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 /* Current Activities Section */

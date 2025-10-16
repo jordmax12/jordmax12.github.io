@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt Validation Suite - Jordan Max</title>
+    <link rel="stylesheet" href="receipt-validation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background -->
+    <div class="showcase-background"></div>
+
+    <!-- Back Button -->
+    <a href="index.html" class="back-button" aria-label="Back to portfolio">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to Portfolio
+    </a>
+
+    <!-- Main Container -->
+    <div class="showcase-container">
+        <!-- Header -->
+        <header class="showcase-header">
+            <h1>Purchase Validation Suite</h1>
+            <p class="subtitle">Experience the 3-step receipt validation process</p>
+        </header>
+
+        <!-- Phone Theater Section -->
+        <div class="theater-section">
+            <!-- Floating Stats -->
+            <div class="stat-card stat-1">
+                <div class="stat-icon">📊</div>
+                <div class="stat-content">
+                    <div class="stat-value">4M+</div>
+                    <div class="stat-label">Receipts Processed</div>
+                </div>
+            </div>
+
+            <div class="stat-card stat-2">
+                <div class="stat-icon">⚡</div>
+                <div class="stat-content">
+                    <div class="stat-value">&lt;10s</div>
+                    <div class="stat-label">Response Time</div>
+                </div>
+            </div>
+
+            <div class="stat-card stat-3">
+                <div class="stat-icon">🛡️</div>
+                <div class="stat-content">
+                    <div class="stat-value">96%+</div>
+                    <div class="stat-label">Fraud Detection</div>
+                </div>
+            </div>
+
+            <div class="stat-card stat-4">
+                <div class="stat-icon">💰</div>
+                <div class="stat-content">
+                    <div class="stat-value">$1-2M+</div>
+                    <div class="stat-label">Saved Annually</div>
+                </div>
+            </div>
+
+            <!-- Phone Mockup -->
+            <div class="phone-mockup">
+                <!-- Phone Frame -->
+                <div class="phone-frame">
+                    <!-- Notch -->
+                    <div class="phone-notch"></div>
+
+                    <!-- Screen -->
+                    <div class="phone-screen">
+                        <!-- Screen 1: SMS Login -->
+                        <div class="screen-content active" data-step="1">
+                            <div class="screen-inner">
+                                <div class="logo-container">
+                                    <div class="logo-text">UPLOAD<br>YOUR RECEIPT</div>
+                                </div>
+
+                                <div class="form-section">
+                                    <h2>ACCOUNT<br>VERIFICATION</h2>
+                                    <p class="form-subtitle">Enter your number to begin your receipt verification</p>
+
+                                    <div class="form-group">
+                                        <label>PHONE NUMBER</label>
+                                        <div class="phone-input-group">
+                                            <select class="country-select">
+                                                <option>US 🇺🇸</option>
+                                            </select>
+                                            <input type="tel" class="phone-input" placeholder="(555) 123-4567" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="agree-1" disabled>
+                                        <label for="agree-1">I have read, understand and agree to the <a href="#" onclick="return false">Privacy Policy</a> and <a href="#" onclick="return false">Official Rules</a></label>
+                                    </div>
+
+                                    <a href="#" class="privacy-link" onclick="return false">Privacy Policy</a>
+                                </div>
+                            </div>
+
+                            <button class="next-button">NEXT STEP</button>
+                        </div>
+
+                        <!-- Screen 2: OTP Entry -->
+                        <div class="screen-content" data-step="2">
+                            <div class="screen-inner">
+                                <div class="logo-container">
+                                    <div class="logo-text">UPLOAD<br>YOUR RECEIPT</div>
+                                </div>
+
+                                <div class="form-section">
+                                    <h2>ACCOUNT<br>VERIFICATION</h2>
+                                    <p class="form-subtitle">A code has been sent to<br><strong>(847) 721-8628</strong></p>
+
+                                    <div class="otp-input-container">
+                                        <input type="text" class="otp-box" maxlength="1" disabled>
+                                        <input type="text" class="otp-box" maxlength="1" disabled>
+                                        <input type="text" class="otp-box" maxlength="1" disabled>
+                                        <input type="text" class="otp-box" maxlength="1" disabled>
+                                        <input type="text" class="otp-box" maxlength="1" disabled>
+                                        <input type="text" class="otp-box" maxlength="1" disabled>
+                                    </div>
+
+                                    <a href="#" class="privacy-link" onclick="return false">Privacy Policy</a>
+                                </div>
+                            </div>
+
+                            <div class="button-group">
+                                <button class="back-button-screen">← RE-ENTER NUMBER</button>
+                                <button class="next-button">NEXT STEP</button>
+                            </div>
+                        </div>
+
+                        <!-- Screen 3: Receipt Upload -->
+                        <div class="screen-content" data-step="3">
+                            <div class="screen-inner">
+                                <div class="logo-container">
+                                    <div class="logo-text">UPLOAD<br>YOUR RECEIPT</div>
+                                </div>
+
+                                <div class="info-section">
+                                    <h3>BEFORE YOU UPLOAD!</h3>
+                                    <div class="checklist">
+                                        <div class="checklist-item">
+                                            <span class="check-icon">✓</span>
+                                            <span>MAKE SURE TO LAY THE RECEIPT FLAT</span>
+                                        </div>
+                                        <div class="checklist-item">
+                                            <span class="check-icon">✓</span>
+                                            <span>ALL 4 CORNERS OF THE RECEIPT MUST BE VISIBLE</span>
+                                        </div>
+                                        <div class="checklist-item">
+                                            <span class="check-icon">✓</span>
+                                            <span>THE MORE LEGIBLE = THE BETTER</span>
+                                        </div>
+                                    </div>
+                                    <button class="watch-video-btn" disabled>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                            <path d="M5 3l8 5-8 5V3z"/>
+                                        </svg>
+                                        WATCH VIDEO
+                                    </button>
+                                </div>
+
+                                <div class="form-section">
+                                    <h2>RECEIPT<br>VERIFICATION</h2>
+                                    <p class="form-subtitle-small">* FIELDS ARE REQUIRED</p>
+
+                                    <div class="form-group">
+                                        <label>FIRST NAME *</label>
+                                        <input type="text" class="form-input" disabled>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>LAST NAME *</label>
+                                        <input type="text" class="form-input" disabled>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>EMAIL *</label>
+                                        <input type="email" class="form-input" disabled>
+                                    </div>
+
+                                    <div class="upload-section">
+                                        <button class="upload-button" disabled>
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                                            </svg>
+                                            UPLOAD RECEIPT PHOTO *
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="button-group">
+                                <button class="back-button-screen">← EXIT FORM</button>
+                                <button class="submit-button">SUBMIT</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Home Indicator -->
+                    <div class="phone-home-indicator"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="navigation-controls">
+            <button class="nav-arrow nav-prev" id="prev-step" aria-label="Previous step">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+
+            <div class="step-indicators">
+                <button class="step-dot active" data-step="1" aria-label="Step 1: Phone verification"></button>
+                <button class="step-dot" data-step="2" aria-label="Step 2: OTP entry"></button>
+                <button class="step-dot" data-step="3" aria-label="Step 3: Receipt upload"></button>
+            </div>
+
+            <button class="nav-arrow nav-next" id="next-step" aria-label="Next step">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Step Description -->
+        <div class="step-description">
+            <div class="description-content active" data-step="1">
+                <h3>Step 1: SMS Verification</h3>
+                <p>Users enter their phone number to receive a one-time verification code. This ensures secure account access and prevents duplicate submissions.</p>
+            </div>
+            <div class="description-content" data-step="2">
+                <h3>Step 2: Code Verification</h3>
+                <p>A 6-digit OTP is sent via SMS. This two-factor authentication adds an extra layer of security to the validation process.</p>
+            </div>
+            <div class="description-content" data-step="3">
+                <h3>Step 3: Receipt Upload</h3>
+                <p>Users provide their information and upload a photo of their receipt. Our AWS Textract-powered system processes the image in under 10 seconds with 96%+ accuracy.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="receipt-validation.js"></script>
+</body>
+</html>
+
