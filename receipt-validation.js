@@ -234,5 +234,37 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.style.cursor = 'not-allowed';
         btn.style.opacity = '0.6';
     });
+
+    // Initialize backend architecture animations
+    initBackendArchitecture();
 });
+
+/* ============================================
+   HOW IT WORKS ANIMATIONS
+   ============================================ */
+
+function initBackendArchitecture() {
+    // Initialize feature card "fall-in" animations
+    const featureCardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add a slight delay for a cascading effect
+                setTimeout(() => {
+                    entry.target.classList.add('fall-in');
+                }, 100);
+                featureCardObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    // Observe all feature cards and summary
+    document.querySelectorAll('.feature-card, .how-it-works-summary').forEach(card => {
+        featureCardObserver.observe(card);
+    });
+}
+
+// Old backend architecture animation functions removed - now using simple fall-in animations
 
