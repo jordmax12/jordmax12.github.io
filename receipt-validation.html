@@ -158,6 +158,207 @@
 
             </section>
 
+            <!-- Flow Visualization 1: DynamoDB + Kinesis Event-Driven -->
+            <section class="flow-visualization" data-flow-id="kinesis">
+                <header class="section-heading">
+                    <span class="overline">Flow 01 · Event Stream Architecture</span>
+                    <h2>DynamoDB + Kinesis Pipeline</h2>
+                    <p>Scroll to watch data flow through our event-driven architecture. Changes cascade from Lambda through DynamoDB Streams to Kinesis, fanning out to multiple processors.</p>
+                </header>
+                
+                <div class="flow-canvas-container">
+                    <canvas id="kinesis-flow-canvas" aria-label="Animated visualization of DynamoDB and Kinesis event flow"></canvas>
+                    
+                    <div class="flow-node flow-node-1" style="left: 10%; top: 50%;">
+                        <div class="node-icon">
+                            <img src="assets/aws/aws-lambda.svg" alt="Lambda">
+                        </div>
+                        <div class="node-label">
+                            <span class="node-title">Mutation Lambda</span>
+                            <span class="node-subtitle">Write to DynamoDB</span>
+                        </div>
+                    </div>
+
+                    <div class="flow-node flow-node-2" style="left: 28%; top: 50%;">
+                        <div class="node-icon">
+                            <img src="assets/aws/aws-dynamodb.svg" alt="DynamoDB">
+                        </div>
+                        <div class="node-label">
+                            <span class="node-title">DynamoDB</span>
+                            <span class="node-subtitle">Stream enabled</span>
+                        </div>
+                    </div>
+
+                    <div class="flow-node flow-node-3" style="left: 46%; top: 50%;">
+                        <div class="node-icon">
+                            <img src="assets/aws/aws-kinesis.svg" alt="Kinesis">
+                        </div>
+                        <div class="node-label">
+                            <span class="node-title">Kinesis Stream</span>
+                            <span class="node-subtitle">Fan-out events</span>
+                        </div>
+                    </div>
+
+                    <div class="flow-node flow-node-4" style="left: 67%; top: 30%;">
+                        <div class="node-icon">
+                            <img src="assets/aws/aws-lambda.svg" alt="Lambda">
+                        </div>
+                        <div class="node-label">
+                            <span class="node-title">Processor Lambda 1</span>
+                            <span class="node-subtitle">Fraud detection</span>
+                        </div>
+                    </div>
+
+                    <div class="flow-node flow-node-5" style="left: 67%; top: 70%;">
+                        <div class="node-icon">
+                            <img src="assets/aws/aws-lambda.svg" alt="Lambda">
+                        </div>
+                        <div class="node-label">
+                            <span class="node-title">Processor Lambda 2</span>
+                            <span class="node-subtitle">Rewards calc</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-description">
+                    <p>Lambda mutations write to DynamoDB with idempotent upserts. DynamoDB Streams capture changes in real-time and publish to Kinesis. Multiple Lambda processors subscribe with filter parameters, enabling parallel processing of fraud detection, rewards calculation, and notifications.</p>
+                </div>
+            </section>
+
+            <!-- Flow Visualization 2: AppSync GraphQL API -->
+            <section class="flow-visualization" data-flow-id="appsync">
+                <header class="section-heading">
+                    <span class="overline">Flow 02 · GraphQL Gateway</span>
+                    <h2>AppSync API Pipeline</h2>
+                    <p>Client requests flow through our GraphQL gateway with JWT validation, pipeline resolvers, and Lambda orchestration.</p>
+                </header>
+                
+                <div class="flow-canvas-container">
+                    <canvas id="appsync-flow-canvas" aria-label="Animated visualization of AppSync GraphQL API flow"></canvas>
+                    
+                    <div class="flow-node flow-node-1" style="left: 10%; top: 50%;">
+                        <div class="node-icon node-icon-client">
+                            <span>🌐</span>
+                        </div>
+                        <div class="node-label">
+                            <span class="node-title">Client Request</span>
+                            <span class="node-subtitle">GraphQL mutation</span>
+                        </div>
+                    </div>
+
+                    <div class="flow-node flow-node-2" style="left: 32%; top: 50%;">
+                        <div class="node-icon">
+                            <img src="assets/aws/aws-appsync.svg" alt="AppSync">
+                        </div>
+                        <div class="node-label">
+                            <span class="node-title">AppSync</span>
+                            <span class="node-subtitle">Pipeline resolver</span>
+                        </div>
+                    </div>
+
+                    <div class="flow-node flow-node-3" style="left: 54%; top: 50%;">
+                        <div class="node-icon">
+                            <img src="assets/aws/aws-lambda.svg" alt="Lambda">
+                        </div>
+                        <div class="node-label">
+                            <span class="node-title">Authorizer</span>
+                            <span class="node-subtitle">JWT + MFA check</span>
+                        </div>
+                    </div>
+
+                    <div class="flow-node flow-node-4" style="left: 76%; top: 50%;">
+                        <div class="node-icon">
+                            <img src="assets/aws/aws-lambda.svg" alt="Lambda">
+                        </div>
+                        <div class="node-label">
+                            <span class="node-title">API Lambda</span>
+                            <span class="node-subtitle">Business logic</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-description">
+                    <p>AppSync receives GraphQL requests and routes them through pipeline resolvers. The authorizer Lambda validates JWT tokens, checks Cognito sessions, and applies adaptive MFA rules. If authorized, the API Lambda executes business logic with shared context from previous pipeline steps.</p>
+                </div>
+            </section>
+
+            <!-- Flow Visualization 3: SQS + SNS Messaging -->
+            <section class="flow-visualization" data-flow-id="sqssns">
+                <header class="section-heading">
+                    <span class="overline">Flow 03 · Pub/Sub Messaging</span>
+                    <h2>SNS + SQS Distribution</h2>
+                    <p>Events published to SNS topics fan out to multiple SQS queues, enabling decoupled microservice communication.</p>
+                </header>
+                
+                <div class="flow-canvas-container">
+                    <canvas id="sqssns-flow-canvas" aria-label="Animated visualization of SNS and SQS messaging flow"></canvas>
+                    
+                    <div class="flow-node flow-node-1" style="left: 15%; top: 50%;">
+                        <div class="node-icon">
+                            <img src="assets/aws/aws-sns.svg" alt="SNS">
+                        </div>
+                        <div class="node-label">
+                            <span class="node-title">SNS Topic</span>
+                            <span class="node-subtitle">Event publisher</span>
+                        </div>
+                    </div>
+
+                    <div class="flow-node flow-node-2" style="left: 40%; top: 50%;">
+                        <div class="node-icon node-icon-fanout">
+                            <span>⚡</span>
+                        </div>
+                        <div class="node-label">
+                            <span class="node-title">Fan-out</span>
+                            <span class="node-subtitle">Message routing</span>
+                        </div>
+                    </div>
+
+                    <div class="flow-node flow-node-3" style="left: 65%; top: 30%;">
+                        <div class="node-icon">
+                            <img src="assets/aws/aws-sqs.svg" alt="SQS">
+                        </div>
+                        <div class="node-label">
+                            <span class="node-title">SQS Queue 1</span>
+                            <span class="node-subtitle">Email service</span>
+                        </div>
+                    </div>
+
+                    <div class="flow-node flow-node-4" style="left: 65%; top: 70%;">
+                        <div class="node-icon">
+                            <img src="assets/aws/aws-sqs.svg" alt="SQS">
+                        </div>
+                        <div class="node-label">
+                            <span class="node-title">SQS Queue 2</span>
+                            <span class="node-subtitle">Analytics</span>
+                        </div>
+                    </div>
+
+                    <div class="flow-node flow-node-5" style="left: 85%; top: 30%;">
+                        <div class="node-icon">
+                            <img src="assets/aws/aws-lambda.svg" alt="Lambda">
+                        </div>
+                        <div class="node-label">
+                            <span class="node-title">Email Lambda</span>
+                            <span class="node-subtitle">Send notifications</span>
+                        </div>
+                    </div>
+
+                    <div class="flow-node flow-node-6" style="left: 85%; top: 70%;">
+                        <div class="node-icon">
+                            <img src="assets/aws/aws-lambda.svg" alt="Lambda">
+                        </div>
+                        <div class="node-label">
+                            <span class="node-title">Analytics Lambda</span>
+                            <span class="node-subtitle">Process metrics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-description">
+                    <p>SNS topics receive events and distribute them to subscribed SQS queues with message filtering. Each queue serves a specific microservice, ensuring loose coupling and independent scaling. Lambda consumers poll queues and process messages with automatic retry and dead-letter queue handling.</p>
+                </div>
+            </section>
+
             <section class="flow-section">
                 <header class="section-heading">
                     <span class="overline">Architecture Track 01</span>
