@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Amazon DynamoDB Streams</title>
+  <defs>
+    <linearGradient id="streams-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00bdb8"/>
+      <stop offset="100%" stop-color="#00897b"/>
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="44" height="44" rx="6" fill="url(#streams-gradient)"/>
+  <path fill="#fff" d="M19 24h26a3 3 0 0 0 0-6H19a3 3 0 0 0 0 6zm0 11h26a3 3 0 0 0 0-6H19a3 3 0 0 0 0 6zm0 11h26a3 3 0 0 0 0-6H19a3 3 0 0 0 0 6z" opacity="0.85"/>
+  <path fill="#fff" d="M32 18c-1.1 0-2 .9-2 2v24a2 2 0 1 0 4 0V20c0-1.1-.9-2-2-2z"/>
+</svg>
+

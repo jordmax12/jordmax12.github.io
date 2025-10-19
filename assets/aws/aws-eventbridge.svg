@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Amazon EventBridge</title>
+  <defs>
+    <linearGradient id="eventbridge-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff8a65"/>
+      <stop offset="100%" stop-color="#d84315"/>
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="44" height="44" rx="6" fill="url(#eventbridge-gradient)"/>
+  <g fill="#fff" opacity="0.9">
+    <circle cx="22" cy="22" r="4"/>
+    <circle cx="42" cy="22" r="4"/>
+    <circle cx="22" cy="42" r="4"/>
+    <circle cx="42" cy="42" r="4"/>
+    <path d="M22 26a2 2 0 1 0 0 4h20a2 2 0 1 0 0-4zM26 42a2 2 0 0 0 4 0V22a2 2 0 1 0-4 0zM34 42a2 2 0 0 0 4 0V22a2 2 0 1 0-4 0z"/>
+  </g>
+</svg>
+

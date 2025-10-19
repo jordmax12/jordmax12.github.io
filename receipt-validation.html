@@ -3,604 +3,403 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Receipt Validation Suite - Jordan Max</title>
+    <title>Receipt Intelligence Platform · Jordan Max</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="receipt-validation.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Background -->
-    <div class="showcase-background"></div>
-
-    <!-- Back Button -->
-    <a href="index.html" class="back-button" aria-label="Back to portfolio">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M19 12H5M12 19l-7-7 7-7"/>
-        </svg>
-        Back to Portfolio
-    </a>
-
-    <!-- Main Container -->
-    <div class="showcase-container">
-        <!-- Header -->
-        <header class="showcase-header">
-            <h1>Purchase Validation Suite</h1>
-            <p class="subtitle">Experience the 3-step receipt validation process</p>
-        </header>
-
-        <!-- Phone Theater Section -->
-        <div class="theater-section">
-            <!-- Floating Stats -->
-            <div class="stat-card stat-1">
-                <div class="stat-icon">📊</div>
-                <div class="stat-content">
-                    <div class="stat-value">4M+</div>
-                    <div class="stat-label">Receipts Processed</div>
-                </div>
-            </div>
-
-            <div class="stat-card stat-2">
-                <div class="stat-icon">⚡</div>
-                <div class="stat-content">
-                    <div class="stat-value">&lt;10s</div>
-                    <div class="stat-label">Response Time</div>
-                </div>
-            </div>
-
-            <div class="stat-card stat-3">
-                <div class="stat-icon">🛡️</div>
-                <div class="stat-content">
-                    <div class="stat-value">96%+</div>
-                    <div class="stat-label">Fraud Detection</div>
-                </div>
-            </div>
-
-            <div class="stat-card stat-4">
-                <div class="stat-icon">💰</div>
-                <div class="stat-content">
-                    <div class="stat-value">$1-2M+</div>
-                    <div class="stat-label">Saved Annually</div>
-                </div>
-            </div>
-
-            <!-- Phone Mockup -->
-            <div class="phone-mockup">
-                <!-- Phone Frame -->
-                <div class="phone-frame">
-                    <!-- Notch -->
-                    <div class="phone-notch"></div>
-
-                    <!-- Screen -->
-                    <div class="phone-screen">
-                        <!-- Screen 1: SMS Login -->
-                        <div class="screen-content active" data-step="1">
-                            <div class="screen-inner">
-                                <div class="logo-container">
-                                    <div class="logo-text">UPLOAD<br>YOUR RECEIPT</div>
-                                </div>
-
-                                <div class="form-section">
-                                    <h2>ACCOUNT<br>VERIFICATION</h2>
-                                    <p class="form-subtitle">Enter your number to begin your receipt verification</p>
-
-                                    <div class="form-group">
-                                        <label>PHONE NUMBER</label>
-                                        <div class="phone-input-group">
-                                            <select class="country-select">
-                                                <option>US 🇺🇸</option>
-                                            </select>
-                                            <input type="tel" class="phone-input" placeholder="(555) 123-4567" disabled>
-                                        </div>
-                                    </div>
-
-                                    <div class="checkbox-group">
-                                        <input type="checkbox" id="agree-1" disabled>
-                                        <label for="agree-1">I have read, understand and agree to the <a href="#" onclick="return false">Privacy Policy</a> and <a href="#" onclick="return false">Official Rules</a></label>
-                                    </div>
-
-                                    <a href="#" class="privacy-link" onclick="return false">Privacy Policy</a>
-                                </div>
-                            </div>
-
-                            <button class="next-button">NEXT STEP</button>
-                        </div>
-
-                        <!-- Screen 2: OTP Entry -->
-                        <div class="screen-content" data-step="2">
-                            <div class="screen-inner">
-                                <div class="logo-container">
-                                    <div class="logo-text">UPLOAD<br>YOUR RECEIPT</div>
-                                </div>
-
-                                <div class="form-section">
-                                    <h2>ACCOUNT<br>VERIFICATION</h2>
-                                    <p class="form-subtitle">A code has been sent to<br><strong>(847) 721-8628</strong></p>
-
-                                    <div class="otp-input-container">
-                                        <input type="text" class="otp-box" maxlength="1" disabled>
-                                        <input type="text" class="otp-box" maxlength="1" disabled>
-                                        <input type="text" class="otp-box" maxlength="1" disabled>
-                                        <input type="text" class="otp-box" maxlength="1" disabled>
-                                        <input type="text" class="otp-box" maxlength="1" disabled>
-                                        <input type="text" class="otp-box" maxlength="1" disabled>
-                                    </div>
-
-                                    <a href="#" class="privacy-link" onclick="return false">Privacy Policy</a>
-                                </div>
-                            </div>
-
-                            <div class="button-group">
-                                <button class="back-button-screen">← RE-ENTER NUMBER</button>
-                                <button class="next-button">NEXT STEP</button>
-                            </div>
-                        </div>
-
-                        <!-- Screen 3: Receipt Upload -->
-                        <div class="screen-content" data-step="3">
-                            <div class="screen-inner">
-                                <div class="logo-container">
-                                    <div class="logo-text">UPLOAD<br>YOUR RECEIPT</div>
-                                </div>
-
-                                <div class="info-section">
-                                    <h3>BEFORE YOU UPLOAD!</h3>
-                                    <div class="checklist">
-                                        <div class="checklist-item">
-                                            <span class="check-icon">✓</span>
-                                            <span>MAKE SURE TO LAY THE RECEIPT FLAT</span>
-                                        </div>
-                                        <div class="checklist-item">
-                                            <span class="check-icon">✓</span>
-                                            <span>ALL 4 CORNERS OF THE RECEIPT MUST BE VISIBLE</span>
-                                        </div>
-                                        <div class="checklist-item">
-                                            <span class="check-icon">✓</span>
-                                            <span>THE MORE LEGIBLE = THE BETTER</span>
-                                        </div>
-                                    </div>
-                                    <button class="watch-video-btn" disabled>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                                            <path d="M5 3l8 5-8 5V3z"/>
-                                        </svg>
-                                        WATCH VIDEO
-                                    </button>
-                                </div>
-
-                                <div class="form-section">
-                                    <h2>RECEIPT<br>VERIFICATION</h2>
-                                    <p class="form-subtitle-small">* FIELDS ARE REQUIRED</p>
-
-                                    <div class="form-group">
-                                        <label>FIRST NAME *</label>
-                                        <input type="text" class="form-input" disabled>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>LAST NAME *</label>
-                                        <input type="text" class="form-input" disabled>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>EMAIL *</label>
-                                        <input type="email" class="form-input" disabled>
-                                    </div>
-
-                                    <div class="upload-section">
-                                        <button class="upload-button" disabled>
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
-                                            </svg>
-                                            UPLOAD RECEIPT PHOTO *
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="button-group">
-                                <button class="back-button-screen">← EXIT FORM</button>
-                                <button class="submit-button">SUBMIT</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Home Indicator -->
-                    <div class="phone-home-indicator"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Navigation Controls -->
-        <div class="navigation-controls">
-            <button class="nav-arrow nav-prev" id="prev-step" aria-label="Previous step">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M15 18l-6-6 6-6"/>
+    <div class="page-shell">
+        <div class="backdrop-gradient" aria-hidden="true"></div>
+        <nav class="page-nav">
+            <a class="logo-mark" href="index.html" aria-label="Back to portfolio">
+                <span>JM</span>
+            </a>
+            <a class="nav-back" href="index.html">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <path d="M15 18l-6-6 6-6" />
                 </svg>
-            </button>
+                <span>Back</span>
+            </a>
+        </nav>
 
-            <div class="step-indicators">
-                <button class="step-dot active" data-step="1" aria-label="Step 1: Phone verification"></button>
-                <button class="step-dot" data-step="2" aria-label="Step 2: OTP entry"></button>
-                <button class="step-dot" data-step="3" aria-label="Step 3: Receipt upload"></button>
-            </div>
-
-            <button class="nav-arrow nav-next" id="next-step" aria-label="Next step">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M9 18l6-6-6-6"/>
-                </svg>
-            </button>
-        </div>
-
-        <!-- Step Description -->
-        <div class="step-description">
-            <div class="description-content active" data-step="1">
-                <h3>Step 1: SMS Verification</h3>
-                <p>Users enter their phone number to receive a one-time verification code. This ensures secure account access and prevents duplicate submissions.</p>
-            </div>
-            <div class="description-content" data-step="2">
-                <h3>Step 2: Code Verification</h3>
-                <p>A 6-digit OTP is sent via SMS. This two-factor authentication adds an extra layer of security to the validation process.</p>
-            </div>
-            <div class="description-content" data-step="3">
-                <h3>Step 3: Receipt Upload</h3>
-                <p>Users provide their information and upload a photo of their receipt. Our AWS Textract-powered system processes the image in under 10 seconds with 96%+ accuracy.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- How It Works Section -->
-    <div class="how-it-works-divider">
-        <div class="divider-line"></div>
-        <div class="divider-text">
-            <span class="divider-icon">⚙️</span>
-            How It Works
-            <span class="divider-icon">⚙️</span>
-        </div>
-        <div class="divider-line"></div>
-    </div>
-
-    <!-- How It Works Container -->
-    <div class="how-it-works-container">
-        <header class="how-it-works-header">
-            <h2>Technical Deep Dive</h2>
-            <p class="how-it-works-subtitle">Scroll to explore the technology powering our receipt validation system</p>
-        </header>
-
-        <!-- Section 1: Event-Driven Lambdas -->
-        <section class="feature-card fall-in" data-section="event-driven">
-            <div class="feature-number">01</div>
-            <div class="feature-content">
-                <h3>Event-Driven Lambda Architecture</h3>
-                <p class="feature-desc">All processing triggers from DynamoDB and Kinesis streams with intelligent filter parameters</p>
-                
-                <div class="simple-diagram">
-                    <div class="diagram-flow">
-                        <div class="diagram-box dynamodb-color">
-                            <div class="diagram-icon">💾</div>
-                            <div class="diagram-label">DynamoDB</div>
-                            <div class="diagram-sublabel">Update/Create</div>
+        <main class="page-content">
+            <section class="hero">
+                <div class="hero-copy">
+                    <h1>Receipt Intelligence Platform</h1>
+                    <p class="lead">National-brand infrastructure that verifies receipts in seconds, stops fraud, and returns actionable insights to marketing and finance teams.</p>
+                    <div class="hero-metrics">
+                        <div class="metric">
+                            <span class="metric-value">4M+</span>
+                            <span class="metric-label">Receipts processed</span>
                         </div>
-                        <div class="diagram-arrow">→</div>
-                        <div class="diagram-box stream-color">
-                            <div class="diagram-icon">〰️</div>
-                            <div class="diagram-label">DDB Stream</div>
-                            <div class="diagram-sublabel">Real-time CDC</div>
+                        <div class="metric">
+                            <span class="metric-value">&lt;10s</span>
+                            <span class="metric-label">Average validation SLA</span>
                         </div>
-                        <div class="diagram-arrow">→</div>
-                        <div class="diagram-box lambda-color">
-                            <div class="diagram-icon">λ</div>
-                            <div class="diagram-label">Lambda Trigger</div>
-                            <div class="diagram-sublabel">Filter: status='pending'</div>
+                        <div class="metric">
+                            <span class="metric-value">96%+</span>
+                            <span class="metric-label">Fraud interception rate</span>
                         </div>
                     </div>
-                    <div class="diagram-note">
-                        <span class="note-icon">💡</span>
-                        <span>100% serverless • Event-driven • Auto-scaling</span>
+                    <div class="hero-legend">
+                        <span class="legend-chip">Serverless</span>
+                        <span class="legend-chip">Event-driven</span>
+                        <span class="legend-chip">Multi-cloud OCR</span>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Section 2: State-of-the-art OCR -->
-        <section class="feature-card fall-in" data-section="ocr">
-            <div class="feature-number">02</div>
-            <div class="feature-content">
-                <h3>State-of-the-Art OCR Models</h3>
-                <p class="feature-desc">Dual OCR system optimized for both digital and physical receipts</p>
-                
-                <div class="ocr-models">
-                    <div class="ocr-model">
-                        <div class="model-header aws-gradient">
-                            <div class="model-icon">📱</div>
-                            <h4>AWS Textract</h4>
+                <div class="hero-board" aria-hidden="true">
+                    <div class="board">
+                        <div class="tile tile--start">
+                            <span class="tile-dot"></span>
+                            <span class="tile-caption">start</span>
                         </div>
-                        <div class="model-body">
-                            <p class="model-use">Digital Receipts</p>
-                            <ul class="model-features">
-                                <li>Desktop website screenshots</li>
-                                <li>Mobile app screenshots</li>
-                                <li>E-receipts & order confirmations</li>
-                                <li>99.2% accuracy on structured text</li>
+
+                        <div class="tile tile--lambda">
+                            <span class="tile-icon"><img src="assets/aws/aws-lambda.svg" alt="AWS Lambda"></span>
+                            <span class="tile-label">Mutation Lambda</span>
+                            <span class="tile-sub">Normalize + persist</span>
+                        </div>
+
+                        <div class="tile tile--ddb">
+                            <span class="tile-icon"><img src="assets/aws/aws-dynamodb.svg" alt="Amazon DynamoDB"></span>
+                            <span class="tile-label">DynamoDB Table</span>
+                            <span class="tile-sub">Single-table schema</span>
+                        </div>
+
+                        <div class="tile tile--kinesis">
+                            <span class="tile-icon"><img src="assets/aws/aws-kinesis.svg" alt="Amazon Kinesis"></span>
+                            <span class="tile-label">Kinesis Stream</span>
+                            <span class="tile-sub">Fan-out events</span>
+                        </div>
+
+                        <div class="tile tile--processors">
+                            <span class="tile-icon"><img src="assets/aws/aws-lambda.svg" alt="AWS Lambda"></span>
+                            <span class="tile-label">Validators</span>
+                            <span class="tile-sub">Fraud + rewards</span>
+                        </div>
+
+                        <div class="tile tile--textract">
+                            <span class="tile-icon"><img src="assets/aws/aws-textract.svg" alt="Amazon Textract"></span>
+                            <span class="tile-label">Textract + Azure</span>
+                            <span class="tile-sub">OCR ensemble</span>
+                        </div>
+
+                        <div class="tile tile--storage">
+                            <span class="tile-icon"><img src="assets/aws/aws-s3.svg" alt="Amazon S3"></span>
+                            <span class="tile-label">S3 Evidence</span>
+                            <span class="tile-sub">Versioned uploads</span>
+                        </div>
+
+                        <div class="tile tile--ops">
+                            <span class="tile-icon"><img src="assets/aws/aws-cloudwatch.svg" alt="Amazon CloudWatch"></span>
+                            <span class="tile-label">CloudWatch</span>
+                            <span class="tile-sub">Dashboards + alerts</span>
+                        </div>
+
+                        <div class="board-snippet">
+                            <span class="snippet-title">AppSync mutation</span>
+                            <pre><code>mutation SubmitReceipt {
+  submitReceipt(phone: "+1-555-201-2210", s3Key: "uploads/receipt.jpg") {
+    status
+    rewardValue
+  }
+}</code></pre>
+                        </div>
+
+                        <div class="board-callout">
+                            <h3>GraphQL Edge</h3>
+                            <p>AppSync pipeline + Cognito authorizer apply adaptive MFA, entitlement rules, and broadcast updates via subscriptions.</p>
+                            <ul>
+                                <li>Adaptive MFA</li>
+                                <li>Rate limiting</li>
+                                <li>Subscriptions fan-out</li>
                             </ul>
                         </div>
-                    </div>
-                    
-                    <div class="ocr-model">
-                        <div class="model-header azure-gradient">
-                            <div class="model-icon">📄</div>
-                            <h4>Azure Document Intelligence</h4>
+
+                        <div class="board-panel board-panel--steps">
+                            <div class="device-shell">
+                                <div class="device-screen">
+                                    <div class="device-step device-step--active" data-step="1">
+                                        <span class="step-badge">Step 01</span>
+                                        <h2>Authenticate</h2>
+                                        <p>AppSync + Cognito authorizer verify phone number and eligibility.</p>
+                                    </div>
+                                    <div class="device-step" data-step="2">
+                                        <span class="step-badge">Step 02</span>
+                                        <h2>Upload</h2>
+                                        <p>Customer receives a signed S3 URL and submits the receipt instantly.</p>
+                                    </div>
+                                    <div class="device-step" data-step="3">
+                                        <span class="step-badge">Step 03</span>
+                                        <h2>Decision</h2>
+                                        <p>Kinesis-driven Lambdas run OCR, fraud heuristics, and issue rewards in &lt;10s.</p>
+                                    </div>
+                                </div>
+                                <div class="device-dots" role="tablist" aria-label="Receipt validation steps">
+                                    <button class="device-dot device-dot--active" data-target="1" aria-label="Authenticate" aria-selected="true"></button>
+                                    <button class="device-dot" data-target="2" aria-label="Upload" aria-selected="false"></button>
+                                    <button class="device-dot" data-target="3" aria-label="Decision" aria-selected="false"></button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="model-body">
-                            <p class="model-use">Paper Receipts</p>
-                            <ul class="model-features">
-                                <li>Physical receipt photos</li>
-                                <li>Handles wrinkles & folds</li>
-                                <li>Low-light optimization</li>
-                                <li>98.7% accuracy on paper</li>
-                            </ul>
-                        </div>
+
+                        <div class="track track--row track--row-top"></div>
+                        <div class="track track--row track--row-mid"></div>
+                        <div class="track track--row track--row-bottom"></div>
+                        <div class="track track--column track--col-left"></div>
+                        <div class="track track--column track--col-right"></div>
+                        <div class="track track--curve track--curve-top"></div>
+                        <div class="track track--curve track--curve-bottom"></div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Section 3: Detection Services -->
-        <section class="feature-card fall-in" data-section="detection">
-            <div class="feature-number">03</div>
-            <div class="feature-content">
-                <h3>Advanced Detection Services</h3>
-                <p class="feature-desc">Multi-layered computer vision and behavioral analysis</p>
-                
-                <div class="detection-grid">
-                    <div class="detection-item">
-                        <div class="detection-icon">📱📄</div>
-                        <h4>Paper vs Digital</h4>
-                        <p>Automatically routes to the correct OCR model</p>
-                        <div class="detection-badge accuracy-badge">99%+ accuracy</div>
-                    </div>
-                    
-                    <div class="detection-item">
-                        <div class="detection-icon">🖥️📲</div>
-                        <h4>Mobile vs Desktop</h4>
-                        <p>Advanced detection using:</p>
-                        <ul class="detection-methods">
-                            <li><strong>Noise Analysis</strong> - Statistical patterns</li>
-                            <li><strong>Blur Detection</strong> - Edge sharpness metrics</li>
-                            <li><strong>LBP (Local Binary Patterns)</strong> - Texture analysis</li>
+            </section>
+
+            <section class="flow-section">
+                <header class="section-heading">
+                    <span class="overline">Architecture Track 01</span>
+                    <h2>Event-Driven Validation Pipeline</h2>
+                    <p>Each stage is isolated, observable, and designed to auto-scale during national promotions.</p>
+                </header>
+
+                <div class="flow-lane" aria-label="Event driven steps">
+                    <article class="flow-card">
+                        <div class="flow-icon"><img src="assets/aws/aws-lambda.svg" alt="Lambda icon"></div>
+                        <h3>Mutation Lambda</h3>
+                        <p>Normalizes payloads, applies dedupe hashes, and writes receipts to DynamoDB.</p>
+                        <ul>
+                            <li>Idempotent upsert</li>
+                            <li>Audit logging</li>
                         </ul>
-                        <div class="detection-badge accuracy-badge">99%+ accuracy</div>
-                    </div>
-                    
-                    <div class="detection-item">
-                        <div class="detection-icon">🛡️</div>
-                        <h4>Fraud Detection</h4>
-                        <p>In-house built multi-marker system:</p>
-                        <ul class="detection-methods">
-                            <li><strong>Unusual Behavior</strong> - Pattern anomalies</li>
-                            <li><strong>Receipt Generation Services</strong> - Fingerprint matching</li>
-                            <li><strong>Duplicate Detection</strong> - Hash comparison</li>
-                            <li><strong>Bulk Upload Prevention</strong> - Rate limiting</li>
+                    </article>
+                    <div class="flow-connector"></div>
+                    <article class="flow-card">
+                        <div class="flow-icon"><img src="assets/aws/aws-dynamodb.svg" alt="DynamoDB icon"></div>
+                        <h3>DynamoDB Table</h3>
+                        <p>Single-table schema with TTLs, GSIs, and promotion-based partitioning.</p>
+                        <ul>
+                            <li>PK customer#</li>
+                            <li>SK receipt#</li>
                         </ul>
-                        <div class="detection-badge fraud-badge">96%+ accuracy</div>
-                    </div>
+                    </article>
+                    <div class="flow-connector"></div>
+                    <article class="flow-card">
+                        <div class="flow-icon"><img src="assets/aws/aws-kinesis.svg" alt="Kinesis icon"></div>
+                        <h3>Amazon Kinesis</h3>
+                        <p>Streams receipt events to downstream processors with shard-per-campaign fan-out.</p>
+                        <ul>
+                            <li>Replay support</li>
+                            <li>Adaptive throughput</li>
+                        </ul>
+                    </article>
+                    <div class="flow-connector"></div>
+                    <article class="flow-card">
+                        <div class="flow-icon"><img src="assets/aws/aws-lambda.svg" alt="Lambda icon"></div>
+                        <h3>Processor Lambdas</h3>
+                        <p>Enrichment, fraud scoring, customer notifications, and status updates.</p>
+                        <ul>
+                            <li>Feature flagged</li>
+                            <li>Observability baked-in</li>
+                        </ul>
+                    </article>
+                    <div class="flow-connector"></div>
+                    <article class="flow-card">
+                        <div class="flow-icon flow-icon--dual">
+                            <img src="assets/aws/aws-textract.svg" alt="Textract icon">
+                            <span class="icon-chip">Azure DI</span>
+                        </div>
+                        <h3>Document Intelligence</h3>
+                        <p>Textract excels at digital receipts while Azure DI handles low-light and crumpled photos.</p>
+                        <ul>
+                            <li>Confidence blending</li>
+                            <li>Image heuristics</li>
+                        </ul>
+                    </article>
+                    <div class="flow-connector"></div>
+                    <article class="flow-card">
+                        <div class="flow-icon"><img src="assets/aws/aws-cloudwatch.svg" alt="CloudWatch icon"></div>
+                        <h3>Operational Analytics</h3>
+                        <p>Structured events feed CloudWatch dashboards, Slack alerts, and billing summaries.</p>
+                        <ul>
+                            <li>Real-time support cues</li>
+                            <li>Campaign ROI dashboards</li>
+                        </ul>
+                    </article>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Section 4: Accuracy Stats -->
-        <section class="feature-card fall-in stats-card" data-section="stats">
-            <div class="feature-number">04</div>
-            <div class="feature-content">
-                <h3>Performance & Accuracy</h3>
-                <p class="feature-desc">Real-world production metrics from millions of receipts processed</p>
-                
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-value">96%+</div>
-                        <div class="stat-label">Fraud Detection Accuracy</div>
-                        <div class="stat-sublabel">Prevented millions in fraudulent claims</div>
-                    </div>
-                    
-                    <div class="stat-item">
-                        <div class="stat-value">99%+</div>
-                        <div class="stat-label">Paper vs Digital Accuracy</div>
-                        <div class="stat-sublabel">Optimal OCR routing every time</div>
-                    </div>
-                    
-                    <div class="stat-item">
-                        <div class="stat-value">99%+</div>
-                        <div class="stat-label">Mobile vs Desktop Accuracy</div>
-                        <div class="stat-sublabel">Using noise, blur & LBP analysis</div>
-                    </div>
-                    
-                    <div class="stat-item">
-                        <div class="stat-value">&lt; 10s</div>
-                        <div class="stat-label">Average Processing Time</div>
-                        <div class="stat-sublabel">From upload to validation complete</div>
-                    </div>
+            <section class="flow-section">
+                <header class="section-heading">
+                    <span class="overline">Architecture Track 02</span>
+                    <h2>GraphQL Edge & Authorization</h2>
+                    <p>Unified schema with adaptive MFA, rate limiting, and real-time subscriptions.</p>
+                </header>
+                <div class="flow-lane" aria-label="GraphQL path">
+                    <article class="flow-card">
+                        <div class="flow-icon"><span class="node-emoji">🌐</span></div>
+                        <h3>Client Surfaces</h3>
+                        <p>Responsive web, mobile web, and partner API consumers sharing a single graph.</p>
+                        <ul>
+                            <li>Global CDN</li>
+                            <li>Shared typings</li>
+                        </ul>
+                    </article>
+                    <div class="flow-connector"></div>
+                    <article class="flow-card">
+                        <div class="flow-icon"><img src="assets/aws/aws-appsync.svg" alt="AppSync icon"></div>
+                        <h3>AWS AppSync</h3>
+                        <p>Pipeline resolvers orchestrate mapping templates, caching, and coarse rate limits.</p>
+                        <ul>
+                            <li>Tracing enabled</li>
+                            <li>Schema contracts</li>
+                        </ul>
+                    </article>
+                    <div class="flow-connector"></div>
+                    <article class="flow-card">
+                        <div class="flow-icon flow-icon--dual">
+                            <img src="assets/aws/aws-cognito.svg" alt="Cognito icon">
+                            <img src="assets/aws/aws-lambda.svg" alt="Lambda icon">
+                        </div>
+                        <h3>Authorization Lambda</h3>
+                        <p>Combines Cognito sessions, adaptive MFA, and entitlement logic before mutation execution.</p>
+                        <ul>
+                            <li>Rule-based throttling</li>
+                            <li>Campaign gating</li>
+                        </ul>
+                    </article>
+                    <div class="flow-connector"></div>
+                    <article class="flow-card">
+                        <div class="flow-icon"><img src="assets/aws/aws-lambda.svg" alt="Lambda icon"></div>
+                        <h3>Receipt Upload Lambda</h3>
+                        <p>Issues signed S3 URLs, records fingerprints, and dispatches events into the validation lane.</p>
+                        <ul>
+                            <li>Secrets Manager</li>
+                            <li>Structured logging</li>
+                        </ul>
+                    </article>
+                    <div class="flow-connector"></div>
+                    <article class="flow-card">
+                        <div class="flow-icon flow-icon--dual">
+                            <img src="assets/aws/aws-s3.svg" alt="S3 icon">
+                            <img src="assets/aws/aws-textract.svg" alt="Textract icon">
+                        </div>
+                        <h3>Receipt Storage</h3>
+                        <p>Receipts land in versioned buckets, invoke Textract, and broadcast status over subscriptions.</p>
+                        <ul>
+                            <li>Lifecycle policies</li>
+                            <li>Subscriptions fan-out</li>
+                        </ul>
+                    </article>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Section 5: Design Patterns -->
-        <section class="feature-card fall-in" data-section="patterns">
-            <div class="feature-number">05</div>
-            <div class="feature-content">
-                <h3>Modern Architecture Patterns</h3>
-                <p class="feature-desc">Enterprise-grade design for scalability and maintainability</p>
-                
-                <div class="patterns-grid">
-                    <div class="pattern-item">
-                        <div class="pattern-icon">📦</div>
-                        <h4>Monorepo</h4>
-                        <p>Single repository for all services with shared utilities and consistent tooling</p>
-                    </div>
-                    
-                    <div class="pattern-item">
-                        <div class="pattern-icon">🔷</div>
-                        <h4>Microservices</h4>
-                        <p>Independently deployable services with clear boundaries and contracts</p>
-                    </div>
-                    
-                    <div class="pattern-item">
-                        <div class="pattern-icon">⚡</div>
-                        <h4>Event-Driven</h4>
-                        <p>Loose coupling via DynamoDB Streams and Kinesis for real-time processing</p>
-                    </div>
-                    
-                    <div class="pattern-item">
-                        <div class="pattern-icon">☁️</div>
-                        <h4>100% Serverless</h4>
-                        <p>No infrastructure management, infinite scaling, pay-per-use pricing</p>
-                    </div>
+            <section class="pillars">
+                <header class="section-heading">
+                    <span class="overline">Platform Outcomes</span>
+                    <h2>How teams benefit</h2>
+                    <p>Every component contributes to marketing performance, customer trust, and operational efficiency.</p>
+                </header>
+                <div class="pillar-grid">
+                    <article class="pillar-card">
+                        <h3>Customer Trust</h3>
+                        <p>Secure authentication and duplicate detection keep loyalty programs honest without friction.</p>
+                        <ul>
+                            <li>96% fraud interception</li>
+                            <li>Automated dispute workflows</li>
+                        </ul>
+                    </article>
+                    <article class="pillar-card">
+                        <h3>Marketing Intelligence</h3>
+                        <p>Normalized basket data powers segmentation, LTV analysis, and store-level promotion tuning.</p>
+                        <ul>
+                            <li>Basket composition signals</li>
+                            <li>Geo + store heatmaps</li>
+                        </ul>
+                    </article>
+                    <article class="pillar-card">
+                        <h3>Operational Agility</h3>
+                        <p>Serverless foundation scales on demand and provides runbooks for support teams in real time.</p>
+                        <ul>
+                            <li>Live incident cues</li>
+                            <li>Self-healing workflows</li>
+                        </ul>
+                    </article>
+                    <article class="pillar-card">
+                        <h3>Financial Impact</h3>
+                        <p>Instant validation and rewards cut manual review time, recover budget, and strengthen retention.</p>
+                        <ul>
+                            <li>$1-2M+ saved annually</li>
+                            <li>Faster promotional ROI</li>
+                        </ul>
+                    </article>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Section 6: Test Coverage -->
-        <section class="feature-card fall-in" data-section="testing">
-            <div class="feature-number">06</div>
-            <div class="feature-content">
-                <h3>Comprehensive Test Coverage</h3>
-                <p class="feature-desc">Production-grade quality assurance across all services</p>
-                
-                <div class="test-coverage">
-                    <div class="coverage-visual">
-                        <div class="coverage-bar">
-                            <div class="coverage-fill" style="width: 90%;"></div>
-                            <div class="coverage-label">90%+</div>
-                        </div>
-                    </div>
-                    
-                    <div class="test-types">
-                        <div class="test-type">
-                            <div class="test-icon">✅</div>
-                            <h4>Unit Tests</h4>
-                            <p>Individual function and component testing</p>
-                        </div>
-                        
-                        <div class="test-type">
-                            <div class="test-icon">🔗</div>
-                            <h4>Integration Tests</h4>
-                            <p>Service-to-service communication validation</p>
-                        </div>
-                        
-                        <div class="test-type">
-                            <div class="test-icon">🎯</div>
-                            <h4>E2E Tests</h4>
-                            <p>Complete workflow testing from upload to validation</p>
-                        </div>
-                    </div>
-                    
-                    <div class="test-badge">
-                        <span class="badge-icon">🧪</span>
-                        <span>Jest Testing Framework</span>
-                    </div>
+            <section class="insights">
+                <div class="insight-card">
+                    <h3>OCR Ensemble</h3>
+                    <p>Textract + Azure Document Intelligence working in tandem for structured and unstructured receipts.</p>
+                    <ul>
+                        <li>Computer vision heuristics auto-route uploads</li>
+                        <li>Confidence scores blended for accuracy</li>
+                    </ul>
                 </div>
-            </div>
-        </section>
-
-        <!-- Section 7: Technology Stack -->
-        <section class="feature-card fall-in" data-section="tech">
-            <div class="feature-number">07</div>
-            <div class="feature-content">
-                <h3>Technology Stack</h3>
-                <p class="feature-desc">Modern cloud-native technologies for performance and reliability</p>
-                
-                <div class="tech-stack">
-                    <div class="tech-category">
-                        <h4 class="tech-category-title">AWS Services</h4>
-                        <div class="tech-badges">
-                            <span class="tech-badge">Lambda</span>
-                            <span class="tech-badge">DynamoDB</span>
-                            <span class="tech-badge">AppSync</span>
-                            <span class="tech-badge">API Gateway</span>
-                            <span class="tech-badge">S3</span>
-                            <span class="tech-badge">CloudWatch</span>
-                            <span class="tech-badge">CloudFormation</span>
-                            <span class="tech-badge">CloudFront</span>
-                            <span class="tech-badge">Textract</span>
-                            <span class="tech-badge">Route53</span>
-                        </div>
-                    </div>
-                    
-                    <div class="tech-category">
-                        <h4 class="tech-category-title">Azure Services</h4>
-                        <div class="tech-badges">
-                            <span class="tech-badge azure">Document Intelligence</span>
-                        </div>
-                    </div>
-                    
-                    <div class="tech-category">
-                        <h4 class="tech-category-title">Languages & Frameworks</h4>
-                        <div class="tech-badges">
-                            <span class="tech-badge lang">Node.js</span>
-                            <span class="tech-badge lang">Python</span>
-                            <span class="tech-badge lang">Jest</span>
-                            <span class="tech-badge lang">Serverless Framework</span>
-                        </div>
-                    </div>
-                    
-                    <div class="tech-category">
-                        <h4 class="tech-category-title">CI/CD</h4>
-                        <div class="tech-badges">
-                            <span class="tech-badge cicd">GitHub Actions</span>
-                        </div>
-                    </div>
+                <div class="insight-card">
+                    <h3>Fraud Analytics</h3>
+                    <p>Behavioral fingerprints, synthetic receipt detection, and rate limiting guard every promotion.</p>
+                    <ul>
+                        <li>Noise, blur, and texture analysis</li>
+                        <li>Hash + device fingerprinting</li>
+                    </ul>
                 </div>
-            </div>
-        </section>
-
-        <!-- Section 8: Achievements -->
-        <section class="feature-card fall-in achievements-card" data-section="achievements">
-            <div class="feature-number">08</div>
-            <div class="feature-content">
-                <h3>Business Impact</h3>
-                <p class="feature-desc">Measurable results delivering value to users and stakeholders</p>
-                
-                <div class="achievements-grid">
-                    <div class="achievement-item">
-                        <div class="achievement-icon">💰</div>
-                        <h4>Saved Millions Annually</h4>
-                        <p>Fraud detection and validation accuracy prevented fraudulent claims, saving the company significant operational costs</p>
-                    </div>
-                    
-                    <div class="achievement-item">
-                        <div class="achievement-icon">📊</div>
-                        <h4>Rich Basket Analysis</h4>
-                        <p>Provided marketing team with detailed purchase behavior data, enabling targeted campaigns and insights</p>
-                    </div>
-                    
-                    <div class="achievement-item">
-                        <div class="achievement-icon">⚡</div>
-                        <h4>Exponentially Faster</h4>
-                        <p>Sub-10-second processing time dramatically improved user experience compared to any alternative solution</p>
-                    </div>
-                    
-                    <div class="achievement-item">
-                        <div class="achievement-icon">📈</div>
-                        <h4>Real-Time Analytics</h4>
-                        <p>Built admin panel with live promotion data and customer support tools for instant issue resolution</p>
-                    </div>
+                <div class="insight-card">
+                    <h3>Quality Automation</h3>
+                    <p>90%+ coverage with unit, integration, and end-to-end suites executed on every feature branch.</p>
+                    <ul>
+                        <li>GitHub Actions pipelines</li>
+                        <li>Isolated feature environments</li>
+                    </ul>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Closing Summary -->
-        <div class="how-it-works-summary fall-in">
-            <h3>A Complete Serverless Solution</h3>
-            <p>This receipt validation system demonstrates expertise in cloud architecture, event-driven design, computer vision, and building production-grade systems that deliver measurable business value.</p>
-            <div class="summary-highlight">
-                <span class="highlight-text">100% Serverless</span>
-                <span class="highlight-dot">•</span>
-                <span class="highlight-text">Event-Driven</span>
-                <span class="highlight-dot">•</span>
-                <span class="highlight-text">Auto-Scaling</span>
-                <span class="highlight-dot">•</span>
-                <span class="highlight-text">Production-Grade</span>
-            </div>
-        </div>
+            <section class="impact-strip">
+                <div class="impact-card">
+                    <span class="impact-label">Rewards credited</span>
+                    <span class="impact-value">&lt; 10s</span>
+                </div>
+                <div class="impact-card">
+                    <span class="impact-label">Support escalations</span>
+                    <span class="impact-value">-65%</span>
+                </div>
+                <div class="impact-card">
+                    <span class="impact-label">Budget preserved</span>
+                    <span class="impact-value">$2M+</span>
+                </div>
+                <div class="impact-card">
+                    <span class="impact-label">Live dashboards</span>
+                    <span class="impact-value">24/7</span>
+                </div>
+            </section>
+
+            <footer class="page-footer">
+                <div class="footer-stack">
+                    <img src="assets/aws/aws-lambda.svg" alt="Lambda icon">
+                    <img src="assets/aws/aws-dynamodb.svg" alt="DynamoDB icon">
+                    <img src="assets/aws/aws-kinesis.svg" alt="Kinesis icon">
+                    <img src="assets/aws/aws-appsync.svg" alt="AppSync icon">
+                    <img src="assets/aws/aws-s3.svg" alt="S3 icon">
+                    <img src="assets/aws/aws-textract.svg" alt="Textract icon">
+                </div>
+                <div class="footer-copy">
+                    <h2>Event-driven, customer-centric, production-ready.</h2>
+                    <p>Architected, implemented, and operated by Jordan Max.</p>
+                </div>
+            </footer>
+        </main>
     </div>
-
-    <script src="receipt-validation.js"></script>
+    <script src="receipt-validation.js" defer></script>
 </body>
 </html>
-
